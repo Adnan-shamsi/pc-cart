@@ -15,12 +15,11 @@
 </div>
 
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-
-
-<button onclick="document.getElementById('id01').style.display='block'" type="button" style="width:100%;">Add admin</button>
+<br>
+<button class='buttonClass' onclick="document.getElementById('id01').style.display='block'" type="button" style="width:80%;">Add admin</button>
 
 <div id="id01" class="modal">
-  
+
   <form class="modal-content animate" action="/action_page.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -36,12 +35,12 @@
 
       <label for="Email"><b>Admin Email</b></label>
       <input type="text" placeholder="xyz@gmail.com" name="email" required>
-      
+
       <label for="Address"><b>Admin Address</b></label>
       <input type="text" placeholder="Enter admin address" name="address" required>
-      
+
       <button type="submit">Submit</button>
-      
+
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
@@ -51,10 +50,10 @@
 </div>
 
 
-<button type="button" onclick="document.getElementById('id02').style.display='block'"  style="width:100%;">Add dealer</button>
+<button class='buttonClass' type="button" onclick="document.getElementById('id02').style.display='block'"  style="width:80%;">Add dealer</button>
 
 <div id="id02" class="modal">
-  
+
   <form class="modal-content animate" action="/action_page.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -70,12 +69,12 @@
 
       <label for="Email"><b>Dealer Email</b></label>
       <input type="text" placeholder="xyz@gmail.com" name="email" required>
-      
+
       <label for="Address"><b>Dealer Address</b></label>
       <input type="text" placeholder="Enter dealer address" name="address" required>
-      
+
       <button type="submit">Submit</button>
-      
+
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
@@ -84,9 +83,9 @@
   </form>
 </div>
 
-<button onclick="window.location.href='admin-table.html';">Delete admin</button>
-<button onclick="window.location.href='dealer-table.html';">Delete dealer</button>
-<button onclick="window.location.href='Catagory.html';">Catagory</button>
+<button class='buttonClass' onclick="window.location.href='admin-table.html';" style="width:80%;">Delete admin</button>
+<button class='buttonClass' onclick="window.location.href='dealer-table.html';" style="width:80%;">Delete dealer</button>
+<button class='buttonClass' onclick="window.location.href='Catagory.html';" style="width:80%;">Catagory</button>
 
 
 <script>
@@ -98,6 +97,6 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 </script>
-   
+
 </body>
-</html> 
+</html>
