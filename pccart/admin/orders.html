@@ -9,21 +9,25 @@
 <body>
     <table>
     <tr>
+        <th>CustomerID</th>
         <th>ProductID</th>
-        <th>Productname</th>
-        <th>Product image</th>
-        <th>Catagory</th>
-        <th>Brand</th>
+        <th>Product Name</th>
         <th>Quantity</th>
+        <th>Status</th>
         <th>Apply</th>
     </tr>
     <tr>    
-        <td>P436</td>
-        <td>Ryzen 5 3400G</td>
-        <td><img src="upload/product-image/Ryzen 5 3400G.jpg" alt="" border="3" height="200" width="200"></img></td>
-        <td>CPU</td>
-        <td>AMD</td>
-        <td>1000</td>
+        <td>C003</td>
+        <td>P089</td>
+        <td>GTX 1080</td>
+        <td>2</td>
+        <td>
+            <select id="Status">
+                <option value="Pending">Pending</option>
+                <option value="Shipped">Shipped</option>
+                <option value="Delivered">Delivered</option>
+            </select>
+        </td>
         <td><button type="submit" class="block">Apply</button></td>
     </tr>
     </table>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/adminstyle.css">
+    <title></title>
+  </head>
+
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="passwordchange.html">Change Password</a>
+        <a href="accountinfo.html">Change account info</a>
+        <a href="#">Contact</a>
+      </div>
+      
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>  
+
+        <button onclick="window.location.href='product-table.html';">Product table</button>
+        <button onclick="window.location.href='orders.html';">Orders</button>
+      
+      <script>
+      function openNav() {
+      document.getElementById("mySidenav").style.width = "300px";
+              }
+        
+      function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+              }
+      </script>        
+
+</body>
+
+</html>
