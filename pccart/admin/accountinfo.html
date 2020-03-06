@@ -10,20 +10,39 @@
     <!--form start-->
     <div class="container-fluid">
       <div class="row">
-        <div class=" col-lg-3 col-md-2 col-sm-12 col-xs-12"></div>
+        <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12"></div>
         <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
         <form class='form-container'>
-          <h1 class='text-center'>Login</h1>
-            <div class="form-group">
-             <label for="exampleInputEmail1">Username</label>
-             <input type="text" class="form-control" id="username" placeholder="Enter Username">
-            </div>
+          <h1 class='text-center'>Sign Up</h1>
+
+          <div class="form-group">
+           <label>Firstname</label>
+           <input type="text" class="form-control" id="first-name" placeholder="Enter Firstname">
+          </div>
+
+          <div class="form-group">
+           <label>Lastname</label>
+           <input type="text" class="form-control" id="last-name" placeholder="Enter Lastname">
+          </div>
 
             <div class="form-group">
-             <label for="exampleInputPassword1">Password</label>
-             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+             <label>Email</label>
+             <input type="email" class="form-control" id="email" placeholder="Enter Email">
             </div>
-            
+
+
+            <div class="form-group">
+             <label>Phone Number</label>
+             <input type="number" class="form-control" id="email" min="1000000000" max="9999999999" placeholder="Enter Phone Number">
+            </div>
+           
+            <div class="form-group">
+                <label>Address</label>
+                <input type="address" class="form-control" id="address" placeholder="Enter Address">
+               </div> 
+
+            <div class="form-group">
+
             <button type="submit" class="btn btn-primary">Submit</button>
             <span class='float-right'><a class='btn btn-primary'href="index.html">Cancel</a></span>
         </form>
