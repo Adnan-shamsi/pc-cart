@@ -4,6 +4,11 @@ body {
   color:white;
   }
 
+.buttonClass{
+  margin-left:60px;
+  border-radius: 10px;
+}
+
 .sidenav {
   height: 100%;
   width: 0;
@@ -155,12 +160,12 @@ span.psw {
 }
 
 @-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
+  from {-webkit-transform: scale(0)}
   to {-webkit-transform: scale(1)}
 }
-  
+
 @keyframes animatezoom {
-  from {transform: scale(0)} 
+  from {transform: scale(0)}
   to {transform: scale(1)}
 }
 
