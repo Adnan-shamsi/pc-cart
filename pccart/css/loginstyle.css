@@ -2,8 +2,14 @@ body {
   background-color: rgb(40, 34, 34);
   color: white;
 }
+<<<<<<< HEAD
 .form-container {
   border: 2px solid black;
+=======
+
+.form-container{
+  border:2px solid black;
+>>>>>>> 870d880dffab966cc4b7b9fb74462eb2618b4ff5
   border-radius: 10px;
   padding: 50px 60px;
   margin-top: 20vh;
