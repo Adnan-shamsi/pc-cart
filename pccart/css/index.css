@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: white;
+    font-family: Arial;
+  }
+  
+  /***********************  Icon Properties ***************/
+  .material-icons.md-24 {
+    font-size: 48px;
+  }
+  
+  .material-icons.md-dark {
+    font-size: 48px;
+    color: black;
+    background: white;
+  }
+  
+  .material-icons.blue600 {
+    color: #2F80ED;
+  }
+  
+  /*********************** Custom Properties **************/
+  .search_whole {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo a {
+    font-family: "Biryani", sans-serif;
+    color: #6c63ff;
+    font-size: 2em;
+  }
+  
+  .search {
+    width: 400px;
+    height: 40px;
+  }
+  
+  .main_area {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .main_area_left {
+    display: flex;
+    align-items: flex-end;
+    flex: 1;
+  }
+  
+  .main_area h1 {
+    color: #888888;
+  }
+  
+  /*****************   Direct Properties **************/
+  ul {
+    list-style-type: none;
+    font-size: 1.5em;
+  }
+  
+  li a {
+    text-decoration: none;
+    transition: transform 2s;
+  }
+  
+  li:hover {
+    transform: scale(1.2);
+  }
+  
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+  }
+  
+  svg {
+    opacity: 0.8;
+    float: right;
+    margin: 40px;
+    padding: 40px;
+  }
+  
+  /*# sourceMappingURL=index.css.map */
+  
