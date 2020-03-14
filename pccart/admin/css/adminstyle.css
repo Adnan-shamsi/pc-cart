@@ -4,6 +4,10 @@ body {
   color:white;
   }
 
+button {
+  width:80%
+}
+
 .buttonClass{
   margin-left:60px;
   border-radius: 10px;
@@ -154,7 +158,7 @@ span.psw {
 }
 
 .labelimg{
-color: black;  
+color: black;
 }
 
 /* Add Zoom Animation */
@@ -184,3 +188,10 @@ color: black;
   }
 }
 
+.modal label{
+  color:grey;
+}
+.modal h1{
+  align-self: center;
+  color:slateblue;
+}

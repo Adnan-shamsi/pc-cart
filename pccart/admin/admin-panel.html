@@ -3,135 +3,116 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/adminstyle.css">
+<link rel="stylesheet" href="css/adminstyle.css">
 </head>
+
 <body>
 
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="passwordchange.html">Change Password</a>
-  <a href="accountinfo.html">Change account info</a>
-  <a href="#">Contact</a>
-</div>
+  <div id="mySidenav" class="sidenav" >
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="passwordchange.html">Change Password</a>
+    <a href="accountinfo.html">Change account info</a>
+    <a href="#">Contact</a>
+  </div>
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-<br>
-<button class='buttonClass' onclick="document.getElementById('id01').style.display='block'" type="button" style="width:80%;">Add admin</button>
+  <span style="font-size:30px;cursor:pointer;margin-left:1%" onclick="openNav()">&#9776;</span>
+  <br>
+  <button class='buttonClass' onclick="document.getElementById('id01').style.display='block'" type="button" style="width:80%;">Add admin</button>
 
-<div id="id01" class="modal">
+  <div id="id01" class="modal">
 
-  <form class="modal-content animate" action="/action_page.php" method="post">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <form class="modal-content animate" action="/action_page.php" method="post">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      </div>
 
-    </div>
+       <h1><b>ADD ADMIN</b></h1>
+      <div class="container">
+        <label for="uname"><b>Admin Username</b></label>
+        <input type="text" placeholder="Enter admin Username" name='uname' required>
 
-    <div class="container">
-      <label for="uname"><b>Admin Username</b></label>
-      <input type="text" placeholder="Enter admin Username" name="uname" required>
+        <label for="psw"><b>Admin Password</b></label>
+        <input type="password" placeholder="Enter admin Password" name="psw" required>
 
-      <label for="psw"><b>Admin Password</b></label>
-      <input type="password" placeholder="Enter admin Password" name="psw" required>
+        <label for="Email"><b>Admin Email</b></label>
+        <input type="text" placeholder="xyz@gmail.com" name="email" required>
 
-      <label for="Email"><b>Admin Email</b></label>
-      <input type="text" placeholder="xyz@gmail.com" name="email" required>
+        <label for="Address"><b>Admin Address</b></label>
+        <input type="text" placeholder="Enter admin address" name="address" required>
 
-      <label for="Address"><b>Admin Address</b></label>
-      <input type="text" placeholder="Enter admin address" name="address" required>
-
-      <button type="submit">Submit</button>
-
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-    </div>
-  </form>
-</div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
 
 
-<button class='buttonClass' type="button" onclick="document.getElementById('id02').style.display='block'"  style="width:80%;">Add dealer</button>
+  <button class='buttonClass' type="button" onclick="document.getElementById('id02').style.display='block'"  style="width:80%;">Add dealer</button>
 
-<div id="id02" class="modal">
+  <div id="id02" class="modal">
 
-  <form class="modal-content animate" action="/action_page.php" method="post">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <form class="modal-content animate" action="/action_page.php" method="post">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      </div>
 
-    </div>
+     <h1><b>ADD DEALER</b></h1>
+      <div class="container">
+        <label for="uname"><b>Dealer Username</b></label>
+        <input type="text" placeholder="Enter dealer Username" name="uname" required>
 
-    <div class="container">
-      <label for="uname"><b>Dealer Username</b></label>
-      <input type="text" placeholder="Enter dealer Username" name="uname" required>
+        <label for="psw"><b>Dealer Password</b></label>
+        <input type="password" placeholder="Enter dealer Password" name="psw" required>
 
-      <label for="psw"><b>Dealer Password</b></label>
-      <input type="password" placeholder="Enter dealer Password" name="psw" required>
+        <label for="Email"><b>Dealer Email</b></label>
+        <input type="text" placeholder="xyz@gmail.com" name="email" required>
 
-      <label for="Email"><b>Dealer Email</b></label>
-      <input type="text" placeholder="xyz@gmail.com" name="email" required>
+        <label for="Address"><b>Dealer Address</b></label>
+        <input type="text" placeholder="Enter dealer address" name="address" required>
 
-      <label for="Address"><b>Dealer Address</b></label>
-      <input type="text" placeholder="Enter dealer address" name="address" required>
+        <button type="submit">Submit</button>
 
-      <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
 
-    </div>
+  <button class='buttonClass' onclick="window.location.href='admin-table.html';" style="width:80%;">Delete admin</button>
+  <button class='buttonClass' onclick="window.location.href='dealer-table.html';" style="width:80%;">Delete dealer</button>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
-    </div>
-  </form>
-</div>
+  <button class='buttonClass' onclick="document.getElementById('id03').style.display='block'" type="button" style="width:80%;">Add Category</button>
 
-<button class='buttonClass' onclick="window.location.href='admin-table.html';" style="width:80%;">Delete admin</button>
-<button class='buttonClass' onclick="window.location.href='dealer-table.html';" style="width:80%;">Delete dealer</button>
+  <div id="id03" class="modal">
 
-<button class='buttonClass' onclick="document.getElementById('id03').style.display='block'" type="button" style="width:80%;">Add Catagory</button>
+    <form class="modal-content animate" action="/action_page.php" method="post" enctype="multipart/form-data">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
 
-<div id="id03" class="modal">
-
-  <form class="modal-content animate" action="/action_page.php" method="post">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
-
-    </div>
-
-    <div class="container">
-      <label for="Catname"><b>Catagory Name</b></label>
-      <input type="text" placeholder="Enter Catagory Name" name="Catname" required>
-
-      <label for="CatID"><b>Catagory ID</b></label>
-      <input type="text" placeholder="Catagory ID" name="CatID" required>
-
-      <form action="/action_page.php">
-        <label for="img" class = "labelimg">Select image:</label>
-        <input type="file" id="img" name="img" accept="image/*" class = "labelimg">
-        <input type="submit">
-      </form> 
-
-      <button type="submit">ADD</button>
-
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
-    </div>
-  </form>
-</div>
+      </div>
+        <h1><b>ADD CATEGORY<br></b></h1>
+      <div class="container">
+        <label for="Catname"><b>Category Name</b></label>
+        <input type="text" placeholder="Enter Catagory Name" name="Catname" required>
 
 
-<button class='buttonClass' onclick="window.location.href='Catagory.html';" style="width:80%;">View Catagory</button>
+          <label for="img1" class = "labelimg mt-3">Select First Image:</label>
+          <input type="file" id="img1" name="img1" class = "labelimg">
 
+        <button type="submit">ADD</button>
+      </div>
 
-<script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "300px";
-}
+    </form>
+  </div>
 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-</script>
+  <button class='buttonClass' onclick="window.location.href='../Category.html';" style="width:80%;">View Category</button>
+
+  <script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "300px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+  </script>
 
 </body>
 </html>
