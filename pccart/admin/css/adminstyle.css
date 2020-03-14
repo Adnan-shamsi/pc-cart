@@ -4,6 +4,10 @@ body {
   color:white;
   }
 
+button {
+  width:80%
+}
+
 .buttonClass{
   margin-left:60px;
   border-radius: 10px;
@@ -153,6 +157,10 @@ span.psw {
   cursor: pointer;
 }
 
+.labelimg{
+color: black;
+}
+
 /* Add Zoom Animation */
 .animate {
   -webkit-animation: animatezoom 0.6s;
@@ -178,4 +186,12 @@ span.psw {
   .cancelbtn {
      width: 100%;
   }
+}
+
+.modal label{
+  color:grey;
+}
+.modal h1{
+  align-self: center;
+  color:slateblue;
 }
