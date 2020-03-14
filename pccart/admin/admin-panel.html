@@ -85,7 +85,42 @@
 
 <button class='buttonClass' onclick="window.location.href='admin-table.html';" style="width:80%;">Delete admin</button>
 <button class='buttonClass' onclick="window.location.href='dealer-table.html';" style="width:80%;">Delete dealer</button>
-<button class='buttonClass' onclick="window.location.href='Catagory.html';" style="width:80%;">Catagory</button>
+
+<button class='buttonClass' onclick="document.getElementById('id03').style.display='block'" type="button" style="width:80%;">Add Catagory</button>
+
+<div id="id03" class="modal">
+
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+    </div>
+
+    <div class="container">
+      <label for="Catname"><b>Catagory Name</b></label>
+      <input type="text" placeholder="Enter Catagory Name" name="Catname" required>
+
+      <label for="CatID"><b>Catagory ID</b></label>
+      <input type="text" placeholder="Catagory ID" name="CatID" required>
+
+      <form action="/action_page.php">
+        <label for="img" class = "labelimg">Select image:</label>
+        <input type="file" id="img" name="img" accept="image/*" class = "labelimg">
+        <input type="submit">
+      </form> 
+
+      <button type="submit">ADD</button>
+
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
+
+
+<button class='buttonClass' onclick="window.location.href='Catagory.html';" style="width:80%;">View Catagory</button>
 
 
 <script>

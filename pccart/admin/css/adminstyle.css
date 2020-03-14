@@ -153,6 +153,10 @@ span.psw {
   cursor: pointer;
 }
 
+.labelimg{
+color: black;  
+}
+
 /* Add Zoom Animation */
 .animate {
   -webkit-animation: animatezoom 0.6s;
@@ -179,3 +183,4 @@ span.psw {
      width: 100%;
   }
 }
+

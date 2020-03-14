@@ -21,6 +21,49 @@
         <button class='buttonClass' onclick="window.location.href='product-table.html';" style='width:80%;' >Product table</button>
         <button class='buttonClass' onclick="window.location.href='orders.html';" style='width:80%;'>Orders</button>
 
+<button class='buttonClass' onclick="document.getElementById('id01').style.display='block'" type="button" style="width:80%;">Add Catagory</button>
+
+<div id="id01" class="modal">
+
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+    </div>
+
+    <div class="container">
+
+      <label for="PID"><b>Product ID</b></label>
+      <input type="text" placeholder="Product ID" name="PID" required>
+
+      <label for="Pname"><b>Product Name</b></label>
+      <input type="text" placeholder="Enter Product Name" name="Pname" required>
+
+      <label for="Catname"><b>Catagory Name</b></label>
+      <input type="text" placeholder="Enter Catagory Name" name="Catname" required>
+
+      <label for="Brand"><b>Brand</b></label>
+      <input type="text" placeholder="Enter Brand Name" name="Brand" required>
+
+      <label for="Qty"><b>Quantity</b></label>
+      <input type="text" placeholder="Enter Quantity" name="Qty" required>
+
+      <form action="/action_page.php">
+        <label for="img" class = "labelimg">Select image:</label>
+        <input type="file" id="img" name="img" accept="image/*" class = "labelimg">
+        <input type="submit">
+      </form> 
+
+      <button type="submit">ADD</button>
+
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
+
       <script>
       function openNav() {
       document.getElementById("mySidenav").style.width = "300px";
