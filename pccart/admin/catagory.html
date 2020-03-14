@@ -9,22 +9,23 @@
 <body class='m-5'>
     <table>
     <tr>
+        <th>Catagory ID</th>
         <th>Catagory</th>
         <th>Catagory image</th>
-        <th>Add/Delete</th>
-        <th>Apply</th>
+        <th>Select</th>
     </tr>
     <tr>
+        <td>C003</td>
         <td>CPU</td>
         <td><img src="upload/category-image/cpu.jpg" alt="" border="3" height="200" width="200"></img></td>
         <td>
-            <select id="Add/Delete">
-            <option value="Add">Add</option>
-            <option value="Delete">Delete</option>
-            </select>
+          <form action="/action_page.php">
+            <input type="checkbox" id="Delete" name="Delete" value="Delete">
+            <label for="Delete"></label><br>
         </td>
-        <td><button class='btn btn-primary' type="submit" class="block">Apply</button></td>
     </tr>
     </table>
+
+    <button class='btn btn-primary' type="submit" class="block" style="position:absolute;right:50px;border:3px">Apply</button>
 
 </body>
