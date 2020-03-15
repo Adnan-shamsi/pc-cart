@@ -1,0 +1,21 @@
+.nav{
+  padding: 3px 10px;
+  background-color:slateblue;
+  display:flex;
+}
+.navitems{
+  padding: 3px;
+  background-color:slateblue;
+  display:flex;
+}
+.dropdown-menu .dropdown-item {
+  color:black;
+}
+.nav a{
+  color:white;
+}
+
+table{
+  width:95%;
+  margin:75px auto;
+}
