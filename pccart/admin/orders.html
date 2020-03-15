@@ -3,24 +3,55 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/style.css">
     <title></title>
   </head>
-<body class='m-5'>
+<body>
+
+  <nav class='nav fixed-top' >
+    <a class="navbar-brand " href="#">
+      <img src="../icon/logo.png" height='30px' alt="">
+      PC-Cart
+    </a>
+    <div class='navitems'>
+     <a  href="dealer-home.html"><i class="fa fa-home" style='font-size:30px;color:black;padding-top:5px' aria-hidden="true"></i><span class="sr-only">(current)</span></a>
+     <a class="nav-item nav-link" href="orders.html"><i class="fa fa-truck" style='font-size:25px;color:black' aria-hidden="true"></i></a>
+     <a class="nav-item nav-link" href="product-table.html">Product</a>
+
+     <a style='position:absolute;right:10px'class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-user-circle-o" style='font-size:25px;color:black' aria-hidden="true"></i>
+     </a>
+     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+       <a class="dropdown-item" href="admin/passwordchange.html">Password change</a>
+       <div class="dropdown-divider"></div>
+       <a class="dropdown-item" href="#">Logout</a>
+     </div>
+   </div>
+
+</nav>
+
+
     <table>
     <tr>
-        <th>CustomerID</th>
+        <th>Customer Name</th>
+        <th>Address</th>
+        <th>Phone No.</th>
         <th>ProductID</th>
-        <th>Product Name</th>
         <th>Quantity</th>
+        <th>Price</th>
         <th>Status</th>
         <th>Apply</th>
+        <th>Cancel Order</th>
     </tr>
     <tr>
-        <td>C003</td>
-        <td>P089</td>
-        <td>GTX 1080</td>
+        <td>Saqib Perwaiz</td>
+        <td>E-121 abc Jamia Nagar Dehli</td>
+        <td>1234567890</td>
+        <td>P201</td>
         <td>2</td>
+        <td><i class="fa fa-inr" aria-hidden="true"></i> 10000</td>
         <td>
             <select id="Status">
                 <option value="Pending">Pending</option>
@@ -28,8 +59,13 @@
                 <option value="Delivered">Delivered</option>
             </select>
         </td>
-        <td><button class='btn btn-primary' type="submit" class="block">Apply</button></td>
+        <td><a href='#' class='btn btn-primary' class="block">Apply</a></td>
+        <td><a href='#'><i class="fa fa-times" style="font-size:30px;color:orangered" aria-hidden="true"></i></a></td>
     </tr>
     </table>
 
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</html>
