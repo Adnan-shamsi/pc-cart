@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2020 at 07:57 AM
+-- Generation Time: Mar 15, 2020 at 07:03 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -54,17 +54,17 @@ CREATE TABLE `customer` (
   `Cusmomer_id` int(11) NOT NULL,
   `FirstName` varchar(15) NOT NULL,
   `LastName` varchar(15) NOT NULL,
-  `UserName` varchar(20) NOT NULL,
-  `Password` varchar(20) NOT NULL,
-  `Phone No.` varchar(13) NOT NULL,
-  `Email` varchar(30) NOT NULL
+  `UserName` varchar(30) NOT NULL,
+  `Password` varchar(35) NOT NULL,
+  `Phone` varchar(10) NOT NULL,
+  `Email` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`Cusmomer_id`, `FirstName`, `LastName`, `UserName`, `Password`, `Phone No.`, `Email`) VALUES
+INSERT INTO `customer` (`Cusmomer_id`, `FirstName`, `LastName`, `UserName`, `Password`, `Phone`, `Email`) VALUES
 (1, 'anas', 'intekhaab', 'anas', '12345', '2345678902', 'anas@gmail.com');
 
 -- --------------------------------------------------------
@@ -92,11 +92,11 @@ CREATE TABLE `person` (
   `person_id` int(11) NOT NULL,
   `FirstName` varchar(15) NOT NULL,
   `LastName` varchar(15) NOT NULL,
-  `Username` varchar(15) NOT NULL,
-  `Password` varchar(20) NOT NULL,
-  `Email` varchar(30) NOT NULL,
+  `Username` varchar(30) NOT NULL,
+  `Password` varchar(35) NOT NULL,
+  `Email` varchar(45) NOT NULL,
   `Address` varchar(50) NOT NULL,
-  `Phone No.` varchar(13) NOT NULL,
+  `Phone` varchar(10) NOT NULL,
   `Role` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -104,9 +104,10 @@ CREATE TABLE `person` (
 -- Dumping data for table `person`
 --
 
-INSERT INTO `person` (`person_id`, `FirstName`, `LastName`, `Username`, `Password`, `Email`, `Address`, `Phone No.`, `Role`) VALUES
-(4, 'srijith', 'nair', 'srijith', '12345', 'srijith@gmail.com', 'E-1 abc NFC delhi 110025', '1234567890', 1),
-(5, 'adnan', 'shamsi', 'adnan', '12345', 'shamsiadnan950@gmail.com', 'E-10 abc NFC delhi 110025', '2345678901', 1);
+INSERT INTO `person` (`person_id`, `FirstName`, `LastName`, `Username`, `Password`, `Email`, `Address`, `Phone`, `Role`) VALUES
+(8, 'srijith', 'nair', 'srijith', '827ccb0eea8a706c4c34a16891f84e7b', 'asfas@gmail.com', 'E-199 SECOND FLOOR', '9811763004', 0),
+(9, 'adnan', 'shamsi', 'adnan', 'd1a0a9e9391af09e978c4c3d11711e75', 'adnanshamsi12345@gmail.com', 'E-167 SECOND FLOOR', '9811763001', 1),
+(10, 'suyash', 'chauhan', 'suyash', '0c4d3abb4818bca3806999fe6f309782', 'suyash@gmail.com', 'E-170 SECOND FLOOR', '1112223335', 0);
 
 -- --------------------------------------------------------
 
@@ -142,7 +143,7 @@ ALTER TABLE `category`
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`Cusmomer_id`),
   ADD UNIQUE KEY `UserName` (`UserName`),
-  ADD UNIQUE KEY `Phone No.` (`Phone No.`),
+  ADD UNIQUE KEY `Phone No.` (`Phone`),
   ADD UNIQUE KEY `Email` (`Email`);
 
 --
@@ -157,7 +158,7 @@ ALTER TABLE `order`
 ALTER TABLE `person`
   ADD PRIMARY KEY (`person_id`),
   ADD UNIQUE KEY `Username` (`Username`),
-  ADD UNIQUE KEY `Email` (`Email`,`Phone No.`);
+  ADD UNIQUE KEY `Email` (`Email`,`Phone`);
 
 --
 -- Indexes for table `product`
@@ -192,7 +193,7 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT for table `person`
 --
 ALTER TABLE `person`
-  MODIFY `person_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `person_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `product`
