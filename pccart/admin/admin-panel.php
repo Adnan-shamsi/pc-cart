@@ -21,6 +21,7 @@
      $address =mysqli_real_escape_string($conn,$_POST['address']);
      $phone_number = $_POST['Phone'];
 
+     # removing +91 from phone number
      if($phone_number[0] == '+')
         echo substr($phone_number,3,10);
 
@@ -64,7 +65,7 @@
 
                     else
                       $sql1 .= "0);";
-            
+
                    mysqli_query($conn,$sql1) or die('insertion failed');
                    echo "<h2 style='color:slateblue;text-align:center;margin-top:10px;'>SuccessFull!!</h2>";
                 }
@@ -73,9 +74,72 @@
          }
          else
          echo "<h2 style='color:red;text-align:center;margin-top:10px;'>Incorrect Phone Number!!</h2>";
-       }#
+       }
   }#if isset button
    ?>
+
+ <?php
+   ######################## php code for adding category ##########################################
+   include ('connection.php');
+
+   if(isset($_POST['add_category']))
+   {
+     $title = strtoupper($_POST['catname']);
+
+     #checking if category name is unique or not
+     $validate_category = "SELECT cat_id FROM category WHERE cat_name = '{$title}' ";
+     $result = mysqli_query($conn,$validate_category) or die('Query failed');
+
+     if(mysqli_num_rows($result)> 0)
+       echo "<h2 style='color:red;text-align:center;margin-top:10px;'>Category already exist!!</h2>";
+    else
+    {
+       # validate image
+       if(isset($_FILES['filephoto']))
+       {
+          $errors = array();
+          $file_name = $_FILES['filephoto']['name'];
+          $file_size = $_FILES['filephoto']['size'];
+          $file_tmp = $_FILES['filephoto']['tmp_name'];
+          $file_type = $_FILES['filephoto']['type'];
+          $temp = explode('.',$file_name);
+          $file_ext = strtolower(end($temp));
+          $extensions = array('jpeg','jpg','png');
+
+          if(in_array($file_ext,$extensions) == false)
+            $errors[] = "Extension not allowed, Please choose a jpeg or png";
+
+
+            if($file_size > 2097152 )
+             $errors[] = 'File must be 2MB or lower';
+
+          #reducing name conflict by adding date to name and extension to the end
+          $file_name = date("dmyhis") . (substr($temp[0],0,30)) . '.' . $file_ext ;
+
+          if(empty($errors)  == true)
+          {
+            #insert category into the table
+            move_uploaded_file($file_tmp,$upload_cat_location . $file_name);
+            $insert_category ="INSERT INTO category(cat_name,cat_img) VALUES ('{$title}','{$file_name}')" ;
+            mysqli_query($conn,$insert_category) or die('Unable to save category to Database');
+            echo "<h2 style='color:slateblue;text-align:center;margin-top:10px;'>SuccessFull!!</h2>";
+          }
+          else
+          {
+            foreach($errors as $value)
+              echo "<h2 style='color:red;text-align:center;margin-top:10px;'>{$value}</h2>";
+          }
+
+       }
+
+    }
+
+   }
+
+  ?>
+
+
+
 
 
 <!--sidebar start---------------------------------------------------->
@@ -181,7 +245,7 @@
   <!--add category form --------------------------------------------------->
   <div id="id03" class="modal">
 
-    <form class="modal-content animate" action="/action_page.php" method="post" enctype="multipart/form-data">
+    <form class="modal-content animate" action='<?php $_SERVER["PHP_SELF"] ;?>' method="post" enctype="multipart/form-data">
       <div class="imgcontainer">
         <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
       </div>
@@ -189,11 +253,11 @@
       <h1><b>ADD CATEGORY<br></b></h1>
 
       <div class="container">
-        <label for="Catname"><b>Category Name</b></label>
-        <input type="text" placeholder="Enter Catagory Name" name="Catname" required>
+        <label for="catname"><b>Category Name</b></label>
+        <input type="text" placeholder="Enter Catagory Name" name="catname" required>
 
-        <label for="img1" class = "labelimg mt-3">Select First Image:</label>
-        <input type="file" id="img1" name="img1" class = "labelimg" required>
+        <label for="catimg" class = "labelimg mt-3">Select Image:</label>
+        <input type="file" id="catimg" name="filephoto" class = "labelimg" required>
 
         <input type="submit" class='btn btn-success' style='width:100%' name='add_category'>Submit
       </div>
