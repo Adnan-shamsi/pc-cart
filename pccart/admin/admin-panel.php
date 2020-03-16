@@ -18,7 +18,7 @@
      $lastname = mysqli_real_escape_string($conn,$_POST['lname']);
      $password = mysqli_real_escape_string($conn,md5($_POST['psw']));
      $email =mysqli_real_escape_string ($conn,$_POST['email']);
-     $address =mysqli_real_escape_string($conn,$_POST['address']);
+     $address = mysqli_real_escape_string($conn,$_POST['address']);
      $phone_number = $_POST['Phone'];
 
      # removing +91 from phone number
@@ -82,7 +82,8 @@
 
    if(isset($_POST['add_category']))
    {
-     $title = strtoupper($_POST['catname']);
+     $title = mysqli_real_escape_string($conn,$_POST['catname']);
+     $title = strtoupper($title);
 
      #checking if category name is unique or not
      $validate_category = "SELECT cat_id FROM category WHERE cat_name = '{$title}' ";
@@ -118,9 +119,10 @@
           if(empty($errors)  == true)
           {
             #insert category into the table
-            move_uploaded_file($file_tmp,$cat_image_location . $file_name);
             $insert_category ="INSERT INTO category(cat_name,cat_img) VALUES ('{$title}','{$file_name}')" ;
             mysqli_query($conn,$insert_category) or die('Unable to save category to Database');
+            move_uploaded_file($file_tmp,$cat_image_location . $file_name);
+
             echo "<h2 style='color:slateblue;text-align:center;margin-top:10px;'>SuccessFull!!</h2>";
           }
           else
