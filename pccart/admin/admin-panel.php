@@ -62,14 +62,12 @@
 
                     if(isset($_POST['add_admin']))
                       $sql1 .= "1);";
-
                     else
                       $sql1 .= "0);";
 
                    mysqli_query($conn,$sql1) or die('insertion failed');
                    echo "<h2 style='color:slateblue;text-align:center;margin-top:10px;'>SuccessFull!!</h2>";
                 }
-
             }
          }
          else
@@ -106,12 +104,13 @@
           $file_ext = strtolower(end($temp));
           $extensions = array('jpeg','jpg','png');
 
+          #checking file extension
           if(in_array($file_ext,$extensions) == false)
             $errors[] = "Extension not allowed, Please choose a jpeg or png";
 
-
-            if($file_size > 2097152 )
-             $errors[] = 'File must be 2MB or lower';
+          #checking size of file
+          if($file_size > 2097152 )
+            $errors[] = 'File must be 2MB or lower';
 
           #reducing name conflict by adding date to name and extension to the end
           $file_name = date("dmyhis") . (substr($temp[0],0,30)) . '.' . $file_ext ;
@@ -119,7 +118,7 @@
           if(empty($errors)  == true)
           {
             #insert category into the table
-            move_uploaded_file($file_tmp,$upload_cat_location . $file_name);
+            move_uploaded_file($file_tmp,$cat_image_location . $file_name);
             $insert_category ="INSERT INTO category(cat_name,cat_img) VALUES ('{$title}','{$file_name}')" ;
             mysqli_query($conn,$insert_category) or die('Unable to save category to Database');
             echo "<h2 style='color:slateblue;text-align:center;margin-top:10px;'>SuccessFull!!</h2>";
