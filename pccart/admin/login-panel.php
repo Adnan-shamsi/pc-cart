@@ -3,6 +3,7 @@
 ?>
 
 <?php
+require_once('connectvars.php');
 $error_msg = "";
 if (!isset($_SESSION['person_id']) && isset($_POST['submit']))
 {
@@ -24,6 +25,11 @@ if (!isset($_SESSION['person_id']) && isset($_POST['submit']))
         $_SESSION['person_id'] = $row['person_id'];
         $_SESSION['username'] = $row['username'];
         $_SESSION['role'] = $row['Role'];
+        $home_url = "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'
+          . ($row['Role'] == 0 ? 'admin-panel.php' : 'dealer-home.php');
+        header("Location:" . $home_url);
+      } else {
+        $error_msg = 'Sorry enter the valid username and the corresponding password';
       }
       else
         $error_msg = "<h2 style='color:red;text-align:center;margin-top:10px;'>Sorry enter the valid username and password</h2>";

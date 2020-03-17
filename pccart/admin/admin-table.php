@@ -6,9 +6,14 @@ if (!isset($_SESSION['person_id']))
 
 else if ($_SESSION['role'] == 0) {
      header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/dealer-home.php');
+<<<<<<< HEAD
 
 else if($_SESSION['role'] != 1)
      die('404 Page not Found');
+=======
+  }
+}
+>>>>>>> 521a70cf6e4f9821b78b4953708017aab6396395
 ?>
 
 <?php
