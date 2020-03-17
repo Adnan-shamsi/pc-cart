@@ -8,11 +8,11 @@ if (!isset($_SESSION['person_id'])) {
 
 
     require_once('connection.php');
-    if (!empty($_POST['username']) || !empty($_POST['password'])) {
+    if (!empty($_POST['username']) && !empty($_POST['password'])) {
 
       $user_username = mysqli_real_escape_string($conn, trim($_POST['username']));
       $user_password = mysqli_real_escape_string($conn, trim($_POST['password']));
-      $query = "SELECT person_id,Username,Role   FROM person WHERE Username='$user_username' AND Password=md5('$user_password')";
+      $query = "SELECT person_id,Username,Role   FROM person WHERE Username='$user_username' AND Password = md5('$user_password')";
       echo $query;
       $data = mysqli_query($conn, $query);
 
@@ -64,12 +64,12 @@ if (!isset($_SESSION['person_id'])) {
           <h1 class='text-center'>Login</h1>
           <div class="form-group">
             <label for="exampleInputEmail1">Username</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
           </div>
 
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
           </div>
 
           <button type="submit" class="btn btn-primary" name="submit">Submit</button>

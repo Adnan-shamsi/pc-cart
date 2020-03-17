@@ -7,7 +7,9 @@ if (!isset($_SESSION['person_id'])) {
 }
 else {
   if ($_SESSION['role'] == 0) {
- header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/dealer-home.php');
+     header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/dealer-home.php');
+  else if($_SESSION['role'] != 1)
+     die('404 Page not Found');
   }
 }
 ?>
@@ -68,7 +70,7 @@ $i=0;
 while($row = mysqli_fetch_array($result)) {
 ?>
 <tr>
-  
+
     <td><?php echo $row["person_id"]; ?></td>
     <td><?php echo $row["FirstName"]; ?></td>
     <td><?php echo $row["Email"]; ?></td>

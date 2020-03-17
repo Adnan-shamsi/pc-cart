@@ -2,9 +2,13 @@
 session_start();
 if (!isset($_SESSION['person_id'])) {
   header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
-} else {
+}
+else {
   if ($_SESSION['role'] == 1) {
     header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/admin-panel.php');
+
+  else if($_SESSION['role'] != 0)
+    die('404 Page not Found');
   }
 }
 ?>
@@ -73,7 +77,7 @@ while($row = mysqli_fetch_array($result)) {
     <?php
 $i++;
 }
-?>    
+?>
     </table>
     <?php
 }

@@ -3,11 +3,14 @@ session_start();
 echo $_SESSION['person_id'];
 if (!isset($_SESSION['person_id'])) {
   echo 'hello';
-  header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
 }
 else {
   if ($_SESSION['role'] == 0) {
- header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/dealer-home.php');
+     header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/dealer-home.php');
+
+  else if($_SESSION['role'] != 1)
+     die('404 Page not Found');
   }
 }
 ?>
@@ -26,13 +29,13 @@ else {
   if(isset($_POST['add_admin']) || isset($_POST['add_dealer']) )
   {
      include 'connection.php';
-     $username = mysqli_real_escape_string($conn,$_POST['uname']);
-     $firstname = mysqli_real_escape_string($conn,$_POST['fname']);
-     $lastname = mysqli_real_escape_string($conn,$_POST['lname']);
-     $password = mysqli_real_escape_string($conn,md5($_POST['psw']));
-     $email =mysqli_real_escape_string ($conn,$_POST['email']);
-     $address = mysqli_real_escape_string($conn,$_POST['address']);
-     $phone_number = $_POST['Phone'];
+     $username = mysqli_real_escape_string($conn,trim($_POST['uname']));
+     $firstname = mysqli_real_escape_string($conn,trim($_POST['fname']));
+     $lastname = mysqli_real_escape_string($conn,trim($_POST['lname']));
+     $password = mysqli_real_escape_string($conn,md5(trim($_POST['psw'])));
+     $email =mysqli_real_escape_string ($conn,trim($_POST['email']));
+     $address = mysqli_real_escape_string($conn,trim($_POST['address']));
+     $phone_number = trim($_POST['Phone']);
 
      # removing +91 from phone number
      if($phone_number[0] == '+')
@@ -61,7 +64,7 @@ else {
 
          else
          {
-                #checking in email unique or not
+                #checking if email unique or not
                 $validate_email = "SELECT username FROM person WHERE email = '{$email}'  ";
                 $result = mysqli_query($conn,$validate_email) or die('Query failed');
 
@@ -95,8 +98,8 @@ else {
 
    if(isset($_POST['add_category']))
    {
-     $title = mysqli_real_escape_string($conn,$_POST['catname']);
-     $title = strtoupper($title);
+     $title = mysqli_real_escape_string($conn,trim($_POST['catname']));
+     $title = strtoupper(trim($title));
 
      #checking if category name is unique or not
      $validate_category = "SELECT cat_id FROM category WHERE cat_name = '{$title}' ";
