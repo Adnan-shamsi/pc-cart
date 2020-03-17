@@ -58,6 +58,9 @@ else if($_SESSION['role'] != 0)
 
            $extensions = array('jpeg','jpg','png');
 
+           if($product_name == '' || $brand =='' || $description =='')
+             $errors[] = "Feild Empty!!";
+
            #checking file extension
            if(in_array($file_ext1,$extensions) == false || in_array($file_ext2,$extensions) == false)
              $errors[] = "Extension not allowed, Please choose a jpeg or png";
@@ -101,7 +104,7 @@ else if($_SESSION['role'] != 0)
  ?>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="passwordchange.html">Change Password</a>
+        <a href="passwordchange.php?pid=<?php echo $_SESSION['person_id'] ?>">Change Password</a>
         <a href="account-update.php?pid=<?php echo $_SESSION['person_id'] ?>">Change account info</a>
         <a href="#">Contact</a>
         <a href="logout.php">Logout</a>
@@ -109,8 +112,8 @@ else if($_SESSION['role'] != 0)
 
       <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span><br>
 
-        <button class='buttonClass' onclick="window.location.href='product-table.html';" style='width:80%;' >Product table</button>
-        <button class='buttonClass' onclick="window.location.href='orders.html';" style='width:80%;'>Orders</button>
+        <button class='buttonClass' onclick="window.location.href='product-table.php';" style='width:80%;' >Product table</button>
+        <button class='buttonClass' onclick="window.location.href='order.php';" style='width:80%;'>Orders</button>
 
 <button class='buttonClass' onclick="document.getElementById('id01').style.display='block'" type="button" style="width:80%;">Add Product</button>
 

@@ -1,7 +1,20 @@
 <?php
-include_once 'connection.php';
-$result = mysqli_query($conn,"SELECT * FROM category");
+session_start();
+if (!isset($_SESSION['person_id']))
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
+
+else if ($_SESSION['role'] == 0)
+     header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/dealer-home.php');
+
+else if ($_SESSION['role'] != 1)
+     die('404 Page not Found');
+
+############# included connection.php
+include_once ('connection.php');
+$result = mysqli_query($conn,"SELECT * FROM category ORDER BY cat_id DESC");
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -15,30 +28,15 @@ $result = mysqli_query($conn,"SELECT * FROM category");
   </head>
 <body>
 
-  <nav class='nav fixed-top' >
-    <a class="navbar-brand " href="#">
-      <img src="../icon/logo.png" height='30px' alt="">
-      PC-Cart
-    </a>
-    <div class='navitems'>
-     <a  href="admin-panel.html"><i class="fa fa-home" style='font-size:30px;color:black;padding-top:5px' aria-hidden="true"></i><span class="sr-only">(current)</span></a>
-     <a class="nav-item nav-link" href="#"><i class="fa fa-truck" style='font-size:25px;color:black' aria-hidden="true"></i></a>
-     <a class="nav-item nav-link" href="#">Category</a>
 
-     <a style='position:absolute;right:10px'class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fa fa-user-circle-o" style='font-size:25px;color:black' aria-hidden="true"></i>
-     </a>
-     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-       <a class="dropdown-item" href="passwordchange.html">Password change</a>
-       <div class="dropdown-divider"></div>
-       <a class="dropdown-item" href="#">Logout</a>
-     </div>
-   </div>
-
-</nav>
 <?php
-if (mysqli_num_rows($result) > 0) {
+################ included navbar file ################################################
+  include_once ('navbar.php');
+  #getting data
+  if (mysqli_num_rows($result) > 0) {
 ?>
+
+
     <table>
     <tr>
         <th>CategoryID</th>
@@ -47,30 +45,38 @@ if (mysqli_num_rows($result) > 0) {
         <th>Edit</th>
         <th>Delete</th>
     </tr>
+
+
 <?php
-$i=0;
+##########php code
 while($row = mysqli_fetch_array($result)) {
-  $img=$row["cat_img"];
- ?>    
+ ?>
+
+
     <tr>
-      
+
         <td><?php echo $row["cat_id"]; ?></td>
         <td><?php echo $row["cat_name"]; ?></td>
-        <td><img src="<?php echo $cat_image_location.$img; ?>" alt="" border="3" height="150" width="150"></img></td>
+        <td ><img src="<?php echo $cat_image_location.$row['cat_img']; ?>" alt="" border="3" height="150" width="250;"></img></td>
         <td><a href='editcategory.php?cid=<?php echo $row["cat_id"]; ?>'><i class="fa fa-pencil-square-o" style="font-size:30px;color:black" aria-hidden="true"></i></a></td>
         <td><a href='#' ><i class="fa fa-trash" style="font-size:30px;color:orangered" aria-hidden="true"></i></a></td>
     </tr>
+
+
+
+
 <?php
-$i++;
+############### php code
 }
 ?>
     </table>
+
+
 <?php
+############### php code
 }
-else{
+else
     echo "No result found";
-}
-echo $cat_image_location.$img
 ?>
 
 </body>

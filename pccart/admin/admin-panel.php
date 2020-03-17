@@ -38,8 +38,8 @@ else if ($_SESSION['role'] != 1)
      if($phone_number[0] == '+')
         echo substr($phone_number,3,10);
 
-     #checking if anything  anything not empty
-     if($username !='' && ctype_alpha($firstname) && ctype_alpha($lastname) && $address !='' && $password != $empty_pass)
+     #checking if  anything  empty
+     if($username !='' && $address !='' && $password != $empty_pass)
      {
        # checking if username is unique or not
        $validate_username = "SELECT username FROM person WHERE  username = '{$username}'  ";
@@ -111,7 +111,7 @@ else if ($_SESSION['role'] != 1)
 
      $errors = array();
 
-     if($title !='')
+     if($title =='')
        $errors[] = " Title is Empty !!";
      #checking if category name is unique or not
      $validate_category = "SELECT cat_id FROM category WHERE cat_name = '{$title}' ";
@@ -297,7 +297,7 @@ else if ($_SESSION['role'] != 1)
   <!-- end of add category form --------------------------------------------------->
 
 
-  <button class='buttonClass' onclick="window.location.href='Category.html';" style="width:80%;">View Category</button>
+  <button class='buttonClass' onclick="window.location.href='Category.php';" style="width:80%;">View Category</button>
 
   <script>
   function openNav() {
