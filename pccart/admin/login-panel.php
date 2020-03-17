@@ -23,7 +23,7 @@ if (!isset($_SESSION['person_id'])) {
         $_SESSION['username'] = $row['username'];
         $_SESSION['role'] = $row['Role'];
         $home_url = "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'
-          . ($row['Role'] == 0 ? 'admin-panel.php' : 'dealer-home.html');
+          . ($row['Role'] == 0 ? 'admin-panel.php' : 'dealer-home.php');
         echo $home_url;
         header("Location:" . $home_url);
       } else {
