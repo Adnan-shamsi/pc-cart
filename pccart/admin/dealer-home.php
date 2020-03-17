@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (!isset($_SESSION['person_id'])) {
+  header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
+} else {
+  if ($_SESSION['role'] == 1) {
+    header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/admin-panel.php');
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
