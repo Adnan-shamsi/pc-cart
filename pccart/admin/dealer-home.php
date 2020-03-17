@@ -5,6 +5,7 @@ if (!isset($_SESSION['person_id'])) {
 } else {
   if ($_SESSION['role'] == 1) {
     header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/admin-panel.php');
+ 
   }
 }
 ?>
@@ -31,10 +32,10 @@ if (!isset($_SESSION['person_id'])) {
            $errors = array();
 
            #taking post input
-          $product_name  = strtoupper(mysqli_real_escape_string($conn,$_POST['pro_name']));
-          $category_id   = mysqli_real_escape_string($conn,$_POST['cat_id']);
-          $brand = strtoupper(mysqli_real_escape_string($conn,$_POST['brand']));
-          $description = mysqli_real_escape_string($conn,$_POST['desc']);
+          $product_name  = strtoupper(mysqli_real_escape_string($conn,trim($_POST['pro_name'])));
+          $category_id   = mysqli_real_escape_string($conn,trim($_POST['cat_id']));
+          $brand = strtoupper(mysqli_real_escape_string($conn,trim($_POST['brand'])));
+          $description = mysqli_real_escape_string($conn,trim($_POST['desc']));
           $price = mysqli_real_escape_string($conn,$_POST['price']);
           $quantity = mysqli_real_escape_string($conn,$_POST['qty']);
 
