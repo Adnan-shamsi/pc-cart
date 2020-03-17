@@ -102,7 +102,7 @@ else if($_SESSION['role'] != 0)
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="passwordchange.html">Change Password</a>
-        <a href="accountinfo.html">Change account info</a>
+        <a href="account-update.php?pid=<?php echo $_SESSION['person_id'] ?>">Change account info</a>
         <a href="#">Contact</a>
         <a href="logout.php">Logout</a>
       </div>

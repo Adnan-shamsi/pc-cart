@@ -36,7 +36,7 @@ if(isset($_SESSION['role']))
 {
   #moving person to their respective home page
   $home_url = "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'
-    . ($row['Role'] == 0 ? 'admin-panel.php' : 'dealer-home.php');
+    . ($row['Role'] == 1 ? 'admin-panel.php' : 'dealer-home.php');
 
   header("Location:" . $home_url);
 }

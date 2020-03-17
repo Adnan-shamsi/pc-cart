@@ -32,59 +32,71 @@ else if ($_SESSION['role'] != 1)
      $email =mysqli_real_escape_string ($conn,trim($_POST['email']));
      $address = mysqli_real_escape_string($conn,trim($_POST['address']));
      $phone_number = trim($_POST['Phone']);
+     $empty_pass = md5('');
 
      # removing +91 from phone number
      if($phone_number[0] == '+')
         echo substr($phone_number,3,10);
 
-     # checking if username is unique or not
-     $validate_username = "SELECT username FROM person WHERE  username = '{$username}'  ";
-     $result = mysqli_query($conn,$validate_username) or die('Query failed');
-
-     if(mysqli_num_rows($result)> 0)
-       echo "<h2 style='color:red;text-align:center;margin-top:10px;'>Username already exist!!</h2>";
-
-     else
+     #checking if anything  anything not empty
+     if($username !='' && ctype_alpha($firstname) && ctype_alpha($lastname) && $address !='' && $password != $empty_pass)
      {
-       #checking for valid phone number
-       if(ctype_digit($phone_number) && strlen($phone_number) == 10 && $phone_number[0]!='-')
+       # checking if username is unique or not
+       $validate_username = "SELECT username FROM person WHERE  username = '{$username}'  ";
+       $result = mysqli_query($conn,$validate_username) or die('Query failed');
+
+       if(mysqli_num_rows($result)> 0)
+         echo "<h2 style='color:red;text-align:center;margin-top:10px;'>Username already exist!!</h2>";
+
+       else
        {
-         $phone_number = mysqli_real_escape_string($conn,$phone_number);
-
-         #checking if phone number is unique or not
-         $validate_phone = "SELECT username FROM person WHERE  Phone = '{$phone_number}'  ";
-         $result = mysqli_query($conn,$validate_phone) or die('Query failed');
-
-         if(mysqli_num_rows($result)> 0)
-           echo "<h2 style='color:red;text-align:center;margin-top:10px;'>Phone number has already been registered<br>Type another Phone number!!</h2>";
-
-         else
+         #checking for valid phone number
+         if(ctype_digit($phone_number) && strlen($phone_number) == 10 && $phone_number[0]!='-')
          {
-                #checking if email unique or not
-                $validate_email = "SELECT username FROM person WHERE email = '{$email}'  ";
-                $result = mysqli_query($conn,$validate_email) or die('Query failed');
+           $phone_number = mysqli_real_escape_string($conn,$phone_number);
 
-                if(mysqli_num_rows($result)> 0)
-                  echo "<h2 style='color:red;text-align:center;margin-top:10px;'>Email already exist!!</h2>";
+           #checking if phone number is unique or not
+           $validate_phone = "SELECT username FROM person WHERE  Phone = '{$phone_number}'  ";
+           $result = mysqli_query($conn,$validate_phone) or die('Query failed');
 
-                else
-                {
-                    #insertion in the table for person
-                    $sql1 = "INSERT INTO person (FirstName, LastName, Username, Password, Email, Address,Phone, Role) VALUES ('{$firstname}','{$lastname}','{$username}','{$password}','{$email}','{$address}','{$phone_number}',";
+           if(mysqli_num_rows($result)> 0)
+             echo "<h4 style='color:red;text-align:center;margin-top:10px;'>Phone number has already been registered<br>Type another Phone number!!</h4>";
 
-                    if(isset($_POST['add_admin']))
-                      $sql1 .= "1);";
-                    else
-                      $sql1 .= "0);";
+           else
+           {
+                  #checking if email unique or not
+                  $validate_email = "SELECT username FROM person  WHERE BINARY email = '{$email}'  ";
+                  $result = mysqli_query($conn,$validate_email) or die('Query failed');
 
-                   mysqli_query($conn,$sql1) or die('insertion failed');
-                   echo "<h2 style='color:slateblue;text-align:center;margin-top:10px;'>SuccessFull!!</h2>";
-                }
-            }
+                  if(mysqli_num_rows($result)> 0)
+                    echo "<h2 style='color:red;text-align:center;margin-top:10px;'>Email already exist!!</h2>";
+
+                  else
+                  {
+                      #insertion in the table for person
+                      $sql1 = "INSERT INTO person (FirstName, LastName, Username, Password, Email, Address,Phone, Role)
+                               VALUES
+                              ('{$firstname}','{$lastname}','{$username}','{$password}','{$email}','{$address}','{$phone_number}',";
+
+                      if(isset($_POST['add_admin']))
+                        $sql1 .= "1);";
+                      else
+                        $sql1 .= "0);";
+
+                     mysqli_query($conn,$sql1) or die('insertion failed');
+                     echo "<h2 style='color:slateblue;text-align:center;margin-top:10px;'>SuccessFull!!</h2>";
+                  }
+              }
+           }
+           else
+           echo "<h2 style='color:red;text-align:center;margin-top:10px;'>Incorrect Phone Number!!</h2>";
          }
-         else
-         echo "<h2 style='color:red;text-align:center;margin-top:10px;'>Incorrect Phone Number!!</h2>";
-       }
+
+     }
+     else
+     echo "<h2 style='color:red;text-align:center;margin-top:10px;'>Invalid Entry!!</h2>";
+
+
   }#if isset button
    ?>
 
@@ -97,6 +109,10 @@ else if ($_SESSION['role'] != 1)
      $title = mysqli_real_escape_string($conn,trim($_POST['catname']));
      $title = strtoupper(trim($title));
 
+     $errors = array();
+
+     if($title !='')
+       $errors[] = " Title is Empty !!";
      #checking if category name is unique or not
      $validate_category = "SELECT cat_id FROM category WHERE cat_name = '{$title}' ";
      $result = mysqli_query($conn,$validate_category) or die('Query failed');
@@ -108,7 +124,7 @@ else if ($_SESSION['role'] != 1)
        # validate image
        if(isset($_FILES['filephoto']))
        {
-          $errors = array();
+
           $file_name = $_FILES['filephoto']['name'];
           $file_size = $_FILES['filephoto']['size'];
           $file_tmp = $_FILES['filephoto']['tmp_name'];
@@ -159,7 +175,7 @@ else if ($_SESSION['role'] != 1)
   <div id="mySidenav" class="sidenav" >
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="passwordchange.html">Change Password</a>
-    <a href="accountinfo.html">Change account info</a>
+    <a href="account-update.php?pid=<?php echo $_SESSION['person_id'] ?>">Change account info</a>
     <a href="#">Contact</a>
     <a href="logout.php">Logout</a>
   </div>
