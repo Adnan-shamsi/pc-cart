@@ -1,14 +1,14 @@
 <?php
 session_start();
-if (!isset($_SESSION['person_id'])) {
-  echo 'hello';
+if (!isset($_SESSION['person_id']))
   header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
-}
-else {
-  if ($_SESSION['role'] == 0) {
+
+else if ($_SESSION['role'] == 0)
      header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/dealer-home.php');
-  }
-}
+
+else if ($_SESSION['role'] != 1)
+     die('404 Page not Found');
+
 ?>
 <!DOCTYPE html>
 <html>

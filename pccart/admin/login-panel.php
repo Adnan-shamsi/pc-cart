@@ -1,15 +1,16 @@
 <?php
  session_start();
+ require_once('connectvars.php');
+ require_once('connection.php');
 ?>
 
 <?php
-require_once('connectvars.php');
+
 $error_msg = "";
 if (!isset($_SESSION['person_id']) && isset($_POST['submit']))
 {
     $user_username = mysqli_real_escape_string($conn, trim($_POST['username']));
     $user_password = mysqli_real_escape_string($conn, trim($_POST['password']));
-    require_once('connection.php');
 
     #checking if username or password is not empty
     if (!empty($_POST['username']) && !empty($_POST['password']))
@@ -25,11 +26,6 @@ if (!isset($_SESSION['person_id']) && isset($_POST['submit']))
         $_SESSION['person_id'] = $row['person_id'];
         $_SESSION['username'] = $row['username'];
         $_SESSION['role'] = $row['Role'];
-        $home_url = "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'
-          . ($row['Role'] == 0 ? 'admin-panel.php' : 'dealer-home.php');
-        header("Location:" . $home_url);
-      } else {
-        $error_msg = 'Sorry enter the valid username and the corresponding password';
       }
       else
         $error_msg = "<h2 style='color:red;text-align:center;margin-top:10px;'>Sorry enter the valid username and password</h2>";
@@ -84,7 +80,7 @@ if(isset($_SESSION['role']))
           </div>
 
           <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-          <span class='float-right'><a class='btn btn-primary' href="index.html">Cancel</a></span>
+          <span class='float-right'><a class='btn btn-primary'>Cancel</a></span>
         </form>
       </div>
 
