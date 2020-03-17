@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['person_id']))
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
+
+include_once('connection.php');
+
+if(!isset($_GET['pid']) || ($_SESSION['person_id'] != $_GET['pid']))
+   die("<h2 style='text-align:center;'>Access Denied !!</h2> ");
+
+    $id= $_GET['pid'];
+    $qry="SELECT * FROM person WHERE person_id= {$id}";
+    $res= mysqli_query($conn,$qry) or die("Unsuccessful");
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -17,38 +34,37 @@
 
           <div class="form-group">
            <label>Firstname</label>
-           <input type="text" class="form-control" id="first-name" placeholder="Enter Firstname">
+           <input type="text" class="form-control"  value="<?php echo  ?>" required>
           </div>
 
           <div class="form-group">
            <label>Lastname</label>
-           <input type="text" class="form-control" id="last-name" placeholder="Enter Lastname">
+           <input type="text" class="form-control"  value="<?php  ?>" required>
           </div>
 
             <div class="form-group">
              <label>Email</label>
-             <input type="email" class="form-control" id="email" placeholder="Enter Email">
+             <input type="email" class="form-control"  value="<?php  ?>" required>
             </div>
 
 
             <div class="form-group">
              <label>Phone Number</label>
-             <input type="number" class="form-control" id="email" min="1000000000" max="9999999999" placeholder="Enter Phone Number">
+             <input type="text" class="form-control" value="<?php  ?>" required>
             </div>
 
             <div class="form-group">
                 <label>Address</label>
-                <input type="address" class="form-control" id="address" placeholder="Enter Address">
+                <input type="address" class="form-control" id="address" value="<?php  ?>" required>
                </div>
 
             <div class="form-group">
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <span class='float-right'><a class='btn btn-primary'href="index.html">Cancel</a></span>
+            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            <span class='float-right'><a class='btn btn-primary'href="<?php $_SESSION['role'] == 1 ? 'admin-panel.php' : 'dealer-home.php'?>">Cancel</a></span>
         </form>
       </div>
 
-      <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12"></div>
+    <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12"></div>
     </div>
     </div>
    <!--form end-->
