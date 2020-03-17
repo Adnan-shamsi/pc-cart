@@ -1,6 +1,5 @@
 <?php
  session_start();
- require_once('connectvars.php');
  require_once('connection.php');
 ?>
 
