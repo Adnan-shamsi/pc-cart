@@ -1,14 +1,13 @@
 <?php
 session_start();
-if (!isset($_SESSION['person_id'])) {
+if (!isset($_SESSION['person_id']))
   header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
-} else {
-  if ($_SESSION['role'] == 1) {
+
+else if ($_SESSION['role'] == 1)
     header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/admin-panel.php');
-  else if($_SESSION['role'] != 0)
+
+ else if($_SESSION['role'] != 0)
     die('404 Page not Found');
-  }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
