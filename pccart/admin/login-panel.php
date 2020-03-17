@@ -1,38 +1,44 @@
 <?php
-session_start();
+ session_start();
+ require_once('connection.php');
 ?>
+
 <?php
+
 $error_msg = "";
-if (!isset($_SESSION['person_id'])) {
-  if (isset($_POST['submit'])) {
+if (!isset($_SESSION['person_id']) && isset($_POST['submit']))
+{
+    $user_username = mysqli_real_escape_string($conn, trim($_POST['username']));
+    $user_password = mysqli_real_escape_string($conn, trim($_POST['password']));
 
+    #checking if username or password is not empty
+    if (!empty($_POST['username']) && !empty($_POST['password']))
+    {
+      $user_password = md5($user_password);
+      $query = "SELECT person_id,Username,Role FROM person WHERE Username='$user_username' AND Password = '$user_password' ";
+      $data = mysqli_query($conn, $query) or die('Query failed');
 
-    require_once('connection.php');
-    if (!empty($_POST['username']) || !empty($_POST['password'])) {
-
-      $user_username = mysqli_real_escape_string($conn, trim($_POST['username']));
-      $user_password = mysqli_real_escape_string($conn, trim($_POST['password']));
-      $query = "SELECT person_id,Username,Role   FROM person WHERE Username='$user_username' AND Password=md5('$user_password')";
-      echo $query;
-      $data = mysqli_query($conn, $query);
-
-      if (mysqli_num_rows($data) == 1) {
+      if (mysqli_num_rows($data) == 1)
+      {
         // if the num.of rows of data returned is 0
         $row = mysqli_fetch_array($data);
         $_SESSION['person_id'] = $row['person_id'];
         $_SESSION['username'] = $row['username'];
         $_SESSION['role'] = $row['Role'];
-        $home_url = "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'
-          . ($row['Role'] == 0 ? 'admin-panel.php' : 'dealer-home.php');
-        echo $home_url;
-        header("Location:" . $home_url);
-      } else {
-        $error_msg = 'Sorry enter the valid username and the corresponding password';
       }
-    } else {
-      $error_msg = 'Please enter data into  both the username and password fields';
+      else
+        $error_msg = "<h2 style='color:red;text-align:center;margin-top:10px;'>Sorry enter the valid username and password</h2>";
     }
-  }
+    else
+      $error_msg = "<h2 style='color:red;text-align:center;margin-top:10px;'>Username or password fields</h2>";
+}
+if(isset($_SESSION['role']))
+{
+  #moving person to their respective home page
+  $home_url = "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'
+    . ($row['Role'] == 0 ? 'admin-panel.php' : 'dealer-home.php');
+
+  header("Location:" . $home_url);
 }
 
 
@@ -64,16 +70,16 @@ if (!isset($_SESSION['person_id'])) {
           <h1 class='text-center'>Login</h1>
           <div class="form-group">
             <label for="exampleInputEmail1">Username</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
           </div>
 
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
           </div>
 
           <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-          <span class='float-right'><a class='btn btn-primary' href="index.html">Cancel</a></span>
+          <span class='float-right'><a class='btn btn-primary'>Cancel</a></span>
         </form>
       </div>
 

@@ -1,21 +1,21 @@
 <?php
 session_start();
-echo $_SESSION['person_id'];
-if (!isset($_SESSION['person_id'])) {
-  echo 'hello';
+
+if (!isset($_SESSION['person_id']))
   header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
-}
-else {
-  if ($_SESSION['role'] == 0) {
- header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/dealer-home.php');
-  }
-}
+
+else if ($_SESSION['role'] == 0) 
+     header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/dealer-home.php');
+
+else if($_SESSION['role'] != 1)
+     die('404 Page not Found');
+
 ?>
 
 <?php
 
-include_once 'connection.php';
-$result = mysqli_query($conn,"SELECT * FROM person WHERE Role=1");
+include_once ('connection.php');
+$result = mysqli_query($conn,"SELECT * FROM person WHERE Role = 1");
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -68,7 +68,7 @@ $i=0;
 while($row = mysqli_fetch_array($result)) {
 ?>
 <tr>
-  
+
     <td><?php echo $row["person_id"]; ?></td>
     <td><?php echo $row["FirstName"]; ?></td>
     <td><?php echo $row["Email"]; ?></td>

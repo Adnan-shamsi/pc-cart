@@ -1,12 +1,15 @@
 <?php
 session_start();
-if (!isset($_SESSION['person_id'])) {
+
+if (!isset($_SESSION['person_id']))
   header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
-} else {
-  if ($_SESSION['role'] == 1) {
+
+else if ($_SESSION['role'] == 1)
     header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/admin-panel.php');
-  }
-}
+
+else if($_SESSION['role'] != 0)
+    die('404 Page not Found');
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -31,10 +34,10 @@ if (!isset($_SESSION['person_id'])) {
            $errors = array();
 
            #taking post input
-          $product_name  = strtoupper(mysqli_real_escape_string($conn,$_POST['pro_name']));
-          $category_id   = mysqli_real_escape_string($conn,$_POST['cat_id']);
-          $brand = strtoupper(mysqli_real_escape_string($conn,$_POST['brand']));
-          $description = mysqli_real_escape_string($conn,$_POST['desc']);
+          $product_name  = strtoupper(mysqli_real_escape_string($conn,trim($_POST['pro_name'])));
+          $category_id   = mysqli_real_escape_string($conn,trim($_POST['cat_id']));
+          $brand = strtoupper(mysqli_real_escape_string($conn,trim($_POST['brand'])));
+          $description = mysqli_real_escape_string($conn,trim($_POST['desc']));
           $price = mysqli_real_escape_string($conn,$_POST['price']);
           $quantity = mysqli_real_escape_string($conn,$_POST['qty']);
 
@@ -101,6 +104,7 @@ if (!isset($_SESSION['person_id'])) {
         <a href="passwordchange.html">Change Password</a>
         <a href="accountinfo.html">Change account info</a>
         <a href="#">Contact</a>
+        <a href="logout.php">Logout</a>
       </div>
 
       <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span><br>
