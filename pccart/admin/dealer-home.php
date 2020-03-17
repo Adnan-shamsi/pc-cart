@@ -101,6 +101,7 @@ if (!isset($_SESSION['person_id'])) {
         <a href="passwordchange.html">Change Password</a>
         <a href="accountinfo.html">Change account info</a>
         <a href="#">Contact</a>
+        <a href="logout.php">Logout</a>
       </div>
 
       <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span><br>

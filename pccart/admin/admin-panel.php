@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo $_SESSION['person_id'];
 if (!isset($_SESSION['person_id'])) {
   echo 'hello';
   header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
@@ -162,6 +161,7 @@ else {
     <a href="passwordchange.html">Change Password</a>
     <a href="accountinfo.html">Change account info</a>
     <a href="#">Contact</a>
+    <a href="logout.php">Logout</a>
   </div>
 <!--sidebar end------------------------------------------------------>
 

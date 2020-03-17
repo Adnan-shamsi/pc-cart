@@ -2,19 +2,19 @@
 session_start();
 ?>
 <?php
+require_once('connectvars.php');
 $error_msg = "";
 if (!isset($_SESSION['person_id'])) {
   if (isset($_POST['submit'])) {
 
+    $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-    require_once('connection.php');
     if (!empty($_POST['username']) || !empty($_POST['password'])) {
 
-      $user_username = mysqli_real_escape_string($conn, trim($_POST['username']));
-      $user_password = mysqli_real_escape_string($conn, trim($_POST['password']));
+      $user_username = mysqli_real_escape_string($dbc, trim($_POST['username']));
+      $user_password = mysqli_real_escape_string($dbc, trim($_POST['password']));
       $query = "SELECT person_id,Username,Role   FROM person WHERE Username='$user_username' AND Password=md5('$user_password')";
-      echo $query;
-      $data = mysqli_query($conn, $query);
+      $data = mysqli_query($dbc, $query);
 
       if (mysqli_num_rows($data) == 1) {
         // if the num.of rows of data returned is 0
@@ -24,7 +24,6 @@ if (!isset($_SESSION['person_id'])) {
         $_SESSION['role'] = $row['Role'];
         $home_url = "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'
           . ($row['Role'] == 0 ? 'admin-panel.php' : 'dealer-home.php');
-        echo $home_url;
         header("Location:" . $home_url);
       } else {
         $error_msg = 'Sorry enter the valid username and the corresponding password';
