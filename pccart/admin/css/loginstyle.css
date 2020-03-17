@@ -11,3 +11,12 @@ color:black;
   -moz-box-shadow: -11px 14px 15px -2px rgba(0,0,0,0.75);
    box-shadow: -11px 14px 15px -2px rgba(0,0,0,0.75);
 }
+
+.post-form{
+  border:2px solid black;
+  border-radius: 10px;
+  padding:50px 60px;margin-top:17vh;
+  webkit-box-shadow: -11px 14px 15px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: -11px 14px 15px -2px rgba(0,0,0,0.75);
+   box-shadow: -11px 14px 15px -2px rgba(0,0,0,0.75);
+}

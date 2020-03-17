@@ -171,8 +171,8 @@
   <!--end of add dealer form --------------------------------------------------->
 
 
-  <button class='buttonClass' onclick="window.location.href='admin-table.html';" style="width:80%;">Delete admin</button>
-  <button class='buttonClass' onclick="window.location.href='dealer-table.html';" style="width:80%;">Delete dealer</button>
+  <button class='buttonClass' onclick="window.location.href='admin-table.php';" style="width:80%;">Edit/Delete admin</button>
+  <button class='buttonClass' onclick="window.location.href='dealer-table.php';" style="width:80%;">Edit/Delete dealer</button>
 
   <button class='buttonClass' onclick="document.getElementById('id03').style.display='block'" type="button" style="width:80%;">Add Category</button>
 
