@@ -33,7 +33,7 @@
       $phone_number = trim($_POST['Phone']);
 
       #checking if name consist of  only alphabets and not empty after trim
-      if(ctype_alpha($firstname) && ctype_alpha($lastname) && $address !='')
+      if($firstname!='' && $lastname!='' && $address !='')
       {
         # removing +91 from phone number
         if($phone_number[0] == '+')
