@@ -10,14 +10,17 @@
   if(!isset($_GET['pid']) || ($_SESSION['person_id'] != $_GET['pid']))
      die("<h2 style='text-align:center;'>Access Denied !!</h2> ");
 
-    $id = $_GET['pid'];
-    $query = "SELECT * FROM person WHERE person_id = {$id}";
  ?>
 
  <?php
 ################# getting data to use as input in form ######################################
     $result = mysqli_query($conn,$query) or die("Unsuccessful");
     $row = mysqli_fetch_array($result);
+
+    #checking if there is any result
+    if(mysqli_num_rows($result) == 0)
+      die('Unsuccessfull');
+
 
    if(isset($_POST['submit']))
    {
@@ -122,12 +125,13 @@
             </div>
 
             <div class="form-group">
-            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-            <span class='float-right'><a class='btn btn-primary' href="<?php echo ($_SESSION['role'] == 1 ? 'admin-panel.php' : 'dealer-home.php')?>">Cancel</a></span>
-         </form>
-      </div>
+              <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+              <span class='float-right'><a class='btn btn-primary' href="<?php echo ($_SESSION['role'] == 1 ? 'admin-panel.php' : 'dealer-home.php')?>">Cancel</a></span>
+            </div>
 
-    <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12"></div>
+         </form>
+
+   <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12"></div>
     </div>
     </div>
    <!--form end-->
