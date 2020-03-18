@@ -5,7 +5,6 @@ include_once ('connection.php');
 
     $id= $_GET['pid'];
 
-    echo "SELECT * from person WHERE person_id='" . $_SESSION["person_id"] . "'";
     if (count($_POST) > 0) {
       $result = mysqli_query($conn, "SELECT * from person WHERE person_id='" . $_SESSION["person_id"] . "'");
       $row = mysqli_fetch_array($result);
