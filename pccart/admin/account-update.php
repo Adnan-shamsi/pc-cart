@@ -14,6 +14,8 @@
 
  <?php
 ################# getting data to use as input in form ######################################
+    $id = $_GET['pid'];
+    $query = "SELECT * FROM person WHERE person_id = $id";
     $result = mysqli_query($conn,$query) or die("Unsuccessful");
     $row = mysqli_fetch_array($result);
 
