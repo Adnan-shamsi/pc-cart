@@ -1,7 +1,6 @@
 <?php
 session_start();
-#included connection.php
-include_once ('connection.php');
+
 if (!isset($_SESSION['person_id']))
   header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
 
@@ -24,6 +23,8 @@ else if($_SESSION['role'] != 0)
 <body>
 <?php
 ################################# add product ###########################################
+    include ('connection.php');
+
     if(isset($_POST['add_product']))
     {
 
@@ -81,7 +82,7 @@ else if($_SESSION['role'] != 0)
 
             $insert_product_sql = "INSERT INTO `product`(`Name`, `category_id`, `Brand`, `Desc`, `Price`, `Quantity`, `first_image`, `second_image`, `Dealer_id`)
                                    VALUES
-                                   ('{$product_name}',{$category_id} ,'{$brand}','{$description}',{$price},{$quantity},'{$file_name1}','{$file_name2}',{$_SESSION['person_id']})";
+                                   ('{$product_name}',{$category_id} ,'{$brand}','{$description}',{$price},{$quantity},'{$file_name1}','{$file_name2}','{$_SESSION['person_id']}')";
 
              mysqli_query($conn,$insert_product_sql) or die('Query failed');
              move_uploaded_file($file_tmp1,$prod_image_location . $file_name1);
@@ -169,7 +170,7 @@ else if($_SESSION['role'] != 0)
         <input type="file" id="photo1" name="photo1" class = "labelimg" required><br>
 
         <label for="photo2" class = "labelimg">Select 2nd Image:</label>
-        <input type="file" id="photo2" name="photo2" class = "labelimg" required>
+        <input type="file" id="photo2" name="photo2" class = "labelimg">
 
         <input type="submit" class='btn btn-success' style='width:100%' name='add_product' >Submit
 

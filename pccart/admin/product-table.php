@@ -17,14 +17,12 @@ include_once ('connection.php');
 # to check if product exist or not for that dealer
 if($_SESSION['role'] == 0)
    $result = mysqli_query($conn,"SELECT * FROM product WHERE dealer_id = {$_SESSION['person_id']}") or die("Unsuccessfull");
-
+   
 #checking if there is any result
 if(mysqli_num_rows($result) == 0)
-  die('Unsuccessfully');
+  die('No Products');
 
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -39,10 +37,12 @@ if(mysqli_num_rows($result) == 0)
   </head>
 <body>
 
-  <?php
-  ################## included navbar file ################################################
+<?php
+################ included navbar file ################################################
   include_once ('navbar.php');
-  ?>
+
+if (mysqli_num_rows($result) > 0) {
+?>
 
 
     <table>
@@ -58,20 +58,38 @@ if(mysqli_num_rows($result) == 0)
         <th>Edit</th>
         <th>Delete</th>
     </tr>
-    <tr>
-        <td>P436</td>
-        <td>Ryzen 5 3400G</td>
-        <td><img src="upload/product-image/Ryzen 5 3400G.jpg" alt="" border="3" height="150" width="150"></img></td>
-        <td><img src="upload/category-image/cpu.jpg" alt="" border="3" height="150" width="150"></img></td>
-        <td>CPU</td>
-        <td>AMD</td>
-        <td><i class="fa fa-inr" aria-hidden="true"></i> 10000</td>
-        <td>2</td>
-        <td><a href="#"><i class="fa fa-pencil-square-o" style="font-size:30px;color:black" aria-hidden="true"></i></a></td>
-        <td><a href='#' ><i class="fa fa-trash" style="font-size:30px;color:orangered" aria-hidden="true"></i></a></td>
-    </tr>
-    </table>
 
+    <?php
+        ###### php code
+      while($row = mysqli_fetch_array($result)) {
+        $cat_name= mysqli_query($conn,"SELECT cat_name FROM category WHERE cat_id = {$row['category_id']}") or die("Unsuccessfull");
+       $row2 = mysqli_fetch_array($cat_name);
+        
+    ?>
+
+    <tr>
+        <td><?php echo $row["Product_id"]; ?></td>
+        <td><?php echo $row["Name"]; ?></td>
+        <td ><img src="<?php echo $prod_image_location . $row['first_image']; ?>" alt="" border="3" height="150" width="250;"></img></td>
+        <td ><img src="<?php echo $prod_image_location . $row['second_image']; ?>" alt="" border="3" height="150" width="250;"></img></td>
+        <td><?php echo $row2['cat_name']; ?></td>
+        <td><?php echo  $row['Brand']; ?></td>
+        <td><i class="fa fa-inr" aria-hidden="true"></i><?php echo  $row['Price']; ?></td>
+        <td><?php echo  $row['Quantity']; ?></td>
+        <td><a href='update-data.php?id=<?php echo $row["Product_id"]; ?>'><i class="fa fa-pencil-square-o" style="font-size:30px;color:black" aria-hidden="true"></i></a></td>
+        <td><a href='delete-product.php?pid=<?php echo $row["Product_id"]; ?>'><i class="fa fa-trash" style="font-size:30px;color:orangered" aria-hidden="true"></i></a></td>
+    </tr>
+    <?php
+    ############### php code
+    }
+    ?>
+    </table>
+<?php
+############### php code
+}
+else
+    echo "No result found";
+?>
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
