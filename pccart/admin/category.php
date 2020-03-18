@@ -57,8 +57,8 @@ while($row = mysqli_fetch_array($result)) {
 
         <td><?php echo $row["cat_id"]; ?></td>
         <td><?php echo $row["cat_name"]; ?></td>
-        <td ><img src="<?php echo $cat_image_location.$row['cat_img']; ?>" alt="" border="3" height="150" width="250;"></img></td>
-        <td><a href='editcategory.php?cid=<?php echo $row["cat_id"]; ?>'><i class="fa fa-pencil-square-o" style="font-size:30px;color:black" aria-hidden="true"></i></a></td>
+        <td ><img src="<?php echo $cat_image_location . $row['cat_img']; ?>" alt="" border="3" height="150" width="250;"></img></td>
+        <td><a href='update-data.php?id=<?php echo $row["cat_id"]; ?>'><i class="fa fa-pencil-square-o" style="font-size:30px;color:black" aria-hidden="true"></i></a></td>
         <td><a href='#' ><i class="fa fa-trash" style="font-size:30px;color:orangered" aria-hidden="true"></i></a></td>
     </tr>
 

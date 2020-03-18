@@ -284,7 +284,7 @@ else if ($_SESSION['role'] != 1)
 
       <div class="container">
         <label for="catname"><b>Category Name</b></label>
-        <input type="text" placeholder="Enter Catagory Name" name="catname" required>
+        <input type="text" placeholder="Enter Category Name" name="catname" required>
 
         <label for="catimg" class = "labelimg mt-3">Select Image:</label>
         <input type="file" id="catimg" name="filephoto" class = "labelimg" required>
