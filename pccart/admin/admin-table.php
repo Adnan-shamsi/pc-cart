@@ -1,22 +1,21 @@
 <?php
 session_start();
-
+# checking login
 if (!isset($_SESSION['person_id']))
   header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
-
-else if ($_SESSION['role'] == 0) 
+#redirecting dealer to dealer home page
+else if ($_SESSION['role'] == 0)
      header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/dealer-home.php');
-
+#additional check
 else if($_SESSION['role'] != 1)
      die('404 Page not Found');
 
-?>
-
-<?php
-
+#included connection file
 include_once ('connection.php');
-$result = mysqli_query($conn,"SELECT * FROM person WHERE Role = 1");
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -30,29 +29,15 @@ $result = mysqli_query($conn,"SELECT * FROM person WHERE Role = 1");
   </head>
 <body>
 
-  <nav class='nav fixed-top' >
-    <a class="navbar-brand " href="#">
-      <img src="../icon/logo.png" height='30px' alt="">
-      PC-Cart
-    </a>
-    <div class='navitems'>
-     <a  href="admin-panel.html"><i class="fa fa-home" style='font-size:30px;color:black;padding-top:5px' aria-hidden="true"></i><span class="sr-only">(current)</span></a>
-     <a class="nav-item nav-link" href="#"><i class="fa fa-truck" style='font-size:25px;color:black' aria-hidden="true"></i></a>
-     <a class="nav-item nav-link" href="#">Category</a>
-
-     <a style='position:absolute;right:10px'class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fa fa-user-circle-o" style='font-size:25px;color:black' aria-hidden="true"></i>
-     </a>
-     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-       <a class="dropdown-item" href="passwordchange.html">Password change</a>
-       <div class="dropdown-divider"></div>
-       <a class="dropdown-item" href="#">Logout</a>
-     </div>
-   </div>
-
-</nav>
 <?php
-if (mysqli_num_rows($result) > 0) {
+
+#fetching result
+$result = mysqli_query($conn,"SELECT * FROM person WHERE Role = 1 ORDER BY person_id DESC");
+
+################ included navbar file ################################################
+  include_once ('navbar.php');
+
+  if (mysqli_num_rows($result) > 0) {
 ?>
 
     <table>
@@ -64,7 +49,7 @@ if (mysqli_num_rows($result) > 0) {
         <th>Delete</th>
     </tr>
     <?php
-$i=0;
+
 while($row = mysqli_fetch_array($result)) {
 ?>
 <tr>
@@ -76,16 +61,17 @@ while($row = mysqli_fetch_array($result)) {
     <td><a href='delete.php?pid=<?php echo $row["person_id"]; ?>'><i class="fa fa-trash" style="font-size:30px;color:orangered" aria-hidden="true"></i></a></td>
 </tr>
 <?php
-$i++;
-}
+}#closing of while loop
 ?>
 
 </table>
  <?php
-}
-else{
-    echo "No result found";
-}
+}#closing of if loop
+
+#if no entry found
+else
+  echo "<h2 style='top='200px;'>No result found</h2>";
+
 ?>
     </table>
 

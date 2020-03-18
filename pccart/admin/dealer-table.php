@@ -1,20 +1,22 @@
 <?php
 session_start();
-
+#################### login check
 if (!isset($_SESSION['person_id']))
   header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
 
+#if role 0 redirecting to dealer
 else if ($_SESSION['role'] == 0)
     header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/dealer-home.php');
-
+#additional check
 else if($_SESSION['role'] != 1)
     die('404 Page not Found');
-
 ?>
 
 <?php
+######### included connection.php
 include_once ('connection.php');
 $result = mysqli_query($conn,"SELECT * FROM person WHERE Role = 0");
+
 ?>
 
 <!DOCTYPE html>
@@ -29,30 +31,14 @@ $result = mysqli_query($conn,"SELECT * FROM person WHERE Role = 0");
   </head>
 <body>
 
-  <nav class='nav fixed-top' >
-    <a class="navbar-brand " href="#">
-      <img src="../icon/logo.png" height='30px' alt="">
-      PC-Cart
-    </a>
-    <div class='navitems'>
-     <a  href="admin-panel.html"><i class="fa fa-home" style='font-size:30px;color:black;padding-top:5px' aria-hidden="true"></i><span class="sr-only">(current)</span></a>
-     <a class="nav-item nav-link" href="#"><i class="fa fa-truck" style='font-size:25px;color:black' aria-hidden="true"></i></a>
-     <a class="nav-item nav-link" href="#">Category</a>
 
-     <a style='position:absolute;right:10px'class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fa fa-user-circle-o" style='font-size:25px;color:black' aria-hidden="true"></i>
-     </a>
-     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-       <a class="dropdown-item" href="passwordchange.html">Password change</a>
-       <div class="dropdown-divider"></div>
-       <a class="dropdown-item" href="#">Logout</a>
-     </div>
-   </div>
-
-</nav>
 <?php
+################ included navbar file ################################################
+  include_once ('navbar.php');
+
 if (mysqli_num_rows($result) > 0) {
 ?>
+
 
     <table>
     <tr>
@@ -61,27 +47,44 @@ if (mysqli_num_rows($result) > 0) {
         <th>EmailID</th>
         <th>Delete</th>
     </tr>
+
+
 <?php
-$i=0;
+###### php code
 while($row = mysqli_fetch_array($result)) {
 ?>
+
+
+
     <tr>
     <td><?php echo $row["person_id"]; ?></td>
     <td><?php echo $row["FirstName"]; ?></td>
     <td><?php echo $row["Email"]; ?></td>
     <td><a href='delete.php?pid=<?php echo $row["person_id"]; ?>'><i class="fa fa-trash" style="font-size:30px;color:orangered" aria-hidden="true"></i></a></td>
     </tr>
-    <?php
-$i++;
+
+
+
+<?php
+########### php code
 }
 ?>
     </table>
-    <?php
+
+
+<?php
+########### php code
 }
-else{
+
+#if no result found
+else
     echo "No result found";
-}
 ?>
+
+
+
+
+
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
