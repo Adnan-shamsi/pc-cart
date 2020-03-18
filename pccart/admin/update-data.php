@@ -30,6 +30,74 @@
  ?>
 
 
+<?php
+ ######################## php code for updating category ##########################################
+
+ if(isset($_POST['update_category']))
+ {
+   $title = mysqli_real_escape_string($conn,trim($_POST['catname']));
+   $title = strtoupper(trim($title));
+
+   $errors = array();
+
+   if($title == '')
+     $errors[] = " Title is Empty !!";
+
+   #checking if category name is unique or not
+   $validate_category = "SELECT cat_id FROM category WHERE cat_name = '{$title}' AND NOT cat_id = $id ";
+   $result = mysqli_query($conn,$validate_category) or die('Query failed');
+
+   if(mysqli_num_rows($result)> 0)
+     echo "<h2 style='color:red;text-align:center;margin-top:10px;'>Category already exist!!</h2>";
+  else
+  {
+     # validate image
+     if(isset($_FILES['filephoto']))
+     {
+
+        $file_name = $_FILES['filephoto']['name'];
+        $file_size = $_FILES['filephoto']['size'];
+        $file_tmp = $_FILES['filephoto']['tmp_name'];
+        $file_type = $_FILES['filephoto']['type'];
+        $temp = explode('.',$file_name);
+        $file_ext = strtolower(end($temp));
+        $extensions = array('jpeg','jpg','png');
+
+        #checking file extension
+        if(in_array($file_ext,$extensions) == false)
+          $errors[] = "Extension not allowed, Please choose a jpeg or png";
+
+        #checking size of file
+        if($file_size > 2097152 )
+          $errors[] = 'File must be 2MB or lower';
+
+        #reducing name conflict by adding date to name and extension to the end
+        $file_name = date("dmyhis") . (substr($temp[0],0,30)) . '.' . $file_ext ;
+
+        if(empty($errors)  == true)
+        {
+          #insert category into the table
+          $insert_category ="INSERT INTO category(cat_name,cat_img) VALUES ('{$title}','{$file_name}')" ;
+          mysqli_query($conn,$insert_category) or die('Unable to save category to Database');
+          move_uploaded_file($file_tmp,$cat_image_location . $file_name);
+
+          echo "<h2 style='color:slateblue;text-align:center;margin-top:10px;'>SuccessFull!!</h2>";
+        }
+        else
+        {
+          foreach($errors as $value)
+            echo "<h2 style='color:red;text-align:center;margin-top:10px;'>{$value}</h2>";
+        }
+
+     }
+
+  }
+
+ }
+
+?>
+
+
 
 
 <!DOCTYPE html>
@@ -65,7 +133,7 @@ if($_SESSION['role'] == 1){
         </div>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-success" name="submit">Submit</button>
+          <button type="submit" class="btn btn-success" name="update_category">Submit</button>
           <span class='float-right'><a class='btn btn-success' href="admin-panel.php">Cancel</a></span>
         </div>
 

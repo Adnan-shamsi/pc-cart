@@ -13,9 +13,10 @@ else if($_SESSION['role'] != 0)
 #included connection file
 include_once ('connection.php');
 
+
 # to check if product exist or not for that dealer
 if($_SESSION['role'] == 0)
-   $result = mysqli_query($conn,"SELECT * FROM product WHERE product_id = $id  AND dealer_id = {$_SESSION['person_id']}") or die("Unsuccessfull");
+   $result = mysqli_query($conn,"SELECT * FROM product WHERE dealer_id = {$_SESSION['person_id']}") or die("Unsuccessfull");
 
 #checking if there is any result
 if(mysqli_num_rows($result) == 0)

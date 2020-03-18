@@ -9,6 +9,10 @@ else if ($_SESSION['role'] == 0)
 else if ($_SESSION['role'] != 1)
      die('404 Page not Found');
 
+#included connection.php
+include_once ('connection.php');
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,7 +28,6 @@ else if ($_SESSION['role'] != 1)
   #####################  php code for adding admin or dealer   ######################################
   if(isset($_POST['add_admin']) || isset($_POST['add_dealer']) )
   {
-     include 'connection.php';
      $username = mysqli_real_escape_string($conn,trim($_POST['uname']));
      $firstname = mysqli_real_escape_string($conn,trim($_POST['fname']));
      $lastname = mysqli_real_escape_string($conn,trim($_POST['lname']));
@@ -102,7 +105,6 @@ else if ($_SESSION['role'] != 1)
 
  <?php
    ######################## php code for adding category ##########################################
-   include ('connection.php');
 
    if(isset($_POST['add_category']))
    {
