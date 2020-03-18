@@ -176,7 +176,7 @@ include_once ('connection.php');
 <!--sidebar start---------------------------------------------------->
   <div id="mySidenav" class="sidenav" >
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="passwordchange.html">Change Password</a>
+    <a href="passwordchange.php?pid=<?php echo $_SESSION['person_id'] ?>">Change Password</a>
     <a href="account-update.php?pid=<?php echo $_SESSION['person_id'] ?>">Change account info</a>
     <a href="#">Contact</a>
     <a href="logout.php">Logout</a>
@@ -286,7 +286,7 @@ include_once ('connection.php');
 
       <div class="container">
         <label for="catname"><b>Category Name</b></label>
-        <input type="text" placeholder="Enter Category Name" name="catname" required>
+        <input type="text" placeholder="Enter Catagory Name" name="catname" required>
 
         <label for="catimg" class = "labelimg mt-3">Select Image:</label>
         <input type="file" id="catimg" name="filephoto" class = "labelimg" required>
