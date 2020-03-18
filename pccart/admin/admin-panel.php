@@ -144,7 +144,8 @@ include_once ('connection.php');
             $errors[] = 'File must be 2MB or lower';
 
           #reducing name conflict by adding date to name and extension to the end
-          $file_name = date("dmyhis") . (substr($temp[0],0,30)) . '.' . $file_ext ;
+          $save_date =date("dmyhis");
+          $file_name = $save_date . (substr($temp[0],0,30)) . '.' . $file_ext ;
 
           if(empty($errors)  == true)
           {
