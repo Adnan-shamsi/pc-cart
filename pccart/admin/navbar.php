@@ -26,7 +26,7 @@
    </a>
    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
      <a class="dropdown-item" href="account-update.php?">Update Details</a>
-     <a class="dropdown-item" href="password-change.php?">Password change</a>
+     <a class="dropdown-item" href="passwordchange.php?">Password change</a>
      <div class="dropdown-divider"></div>
      <a class="dropdown-item" href="logout.php">Logout</a>
    </div>
