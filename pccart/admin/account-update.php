@@ -5,16 +5,11 @@
   #checking for login
   if (!isset($_SESSION['person_id']))
      header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
-
-  #checking if pid and peson id is same or not
-  if(!isset($_GET['pid']) || ($_SESSION['person_id'] != $_GET['pid']))
-     die("<h2 style='text-align:center;'>Access Denied !!</h2> ");
-
  ?>
 
  <?php
 ################# getting data to use as input in form ######################################
-    $id = $_GET['pid'];
+    $id = $_SESSION['person_id'];
     $query = "SELECT * FROM person WHERE person_id = $id";
     $result = mysqli_query($conn,$query) or die("Unsuccessful");
     $row = mysqli_fetch_array($result);

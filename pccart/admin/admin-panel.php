@@ -177,8 +177,8 @@ include_once ('connection.php');
 <!--sidebar start---------------------------------------------------->
   <div id="mySidenav" class="sidenav" >
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="passwordchange.php?pid=<?php echo $_SESSION['person_id'] ?>">Change Password</a>
-    <a href="account-update.php?pid=<?php echo $_SESSION['person_id'] ?>">Change account info</a>
+    <a href="passwordchange.php?">Change Password</a>
+    <a href="account-update.php?">Change account info</a>
     <a href="#">Contact</a>
     <a href="logout.php">Logout</a>
   </div>

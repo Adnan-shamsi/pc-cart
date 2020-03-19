@@ -25,8 +25,8 @@
     <i class="fa fa-user-circle-o" style='font-size:25px;color:black' aria-hidden="true"></i>
    </a>
    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-     <a class="dropdown-item" href="account-update.php?pid=<?php echo $_SESSION['person_id'] ?>">Update Details</a>
-     <a class="dropdown-item" href="password-change.php?pid=<?php echo $_SESSION['person_id'] ?>">Password change</a>
+     <a class="dropdown-item" href="account-update.php?">Update Details</a>
+     <a class="dropdown-item" href="password-change.php?">Password change</a>
      <div class="dropdown-divider"></div>
      <a class="dropdown-item" href="logout.php">Logout</a>
    </div>
