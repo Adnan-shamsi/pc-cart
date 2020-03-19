@@ -59,8 +59,19 @@ while($row = mysqli_fetch_array($result)) {
         <td><?php echo $row["cat_name"]; ?></td>
         <td ><img src="<?php echo $cat_image_location . $row['cat_img']; ?>" alt="" border="3" height="150" width="250;"></img></td>
         <td><a href='update-data.php?id=<?php echo $row["cat_id"]; ?>'><i class="fa fa-pencil-square-o" style="font-size:30px;color:black" aria-hidden="true"></i></a></td>
-        <td><a href='#' ><i class="fa fa-trash" style="font-size:30px;color:orangered" aria-hidden="true"></i></a></td>
-    </tr>
+        <td><button class="fa fa-trash" style="font-size:30px;color:orangered" aria-hidden="true" onClick="delete_me(<?php echo $row['cat_id']; ?>)" name="delete_btn" ></button></td>
+        </tr>
+        <!-- JS for popup on deleting item-->
+        <script type="text/javascript">
+          function delete_me(del_id)
+          {
+            if(confirm("Do you want to delete category " +del_id+'')){
+               window.location.href = 'delete-data.php?pid='+del_id +'';
+               return true;
+             }
+          }
+        </script>
+
 
 
 
@@ -76,7 +87,7 @@ while($row = mysqli_fetch_array($result)) {
 ############### php code
 }
 else
-    echo "No result found";
+    echo "<h1  style='color:red;margin:100px;text-align:center'>No Result Found<h1>";
 ?>
 
 </body>

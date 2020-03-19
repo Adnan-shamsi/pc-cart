@@ -60,8 +60,20 @@ while($row = mysqli_fetch_array($result)) {
     <td><?php echo $row["person_id"]; ?></td>
     <td><?php echo $row["FirstName"]; ?></td>
     <td><?php echo $row["Email"]; ?></td>
-    <td><a href='delete.php?pid=<?php echo $row["person_id"]; ?>'><i class="fa fa-trash" style="font-size:30px;color:orangered" aria-hidden="true"></i></a></td>
+    <td><button class="fa fa-trash" style="font-size:30px;color:orangered" aria-hidden="true" onClick="delete_me(<?php echo $row['person_id']; ?>)" name="delete_btn" ></button></td>
     </tr>
+
+    <!-- JS for popup on deleting item-->
+    <script type="text/javascript">
+      function delete_me(del_id)
+      {
+        if(confirm("Do you want to delete dealer :" + del_id +'')){
+           window.location.href = "delete-data.php?person="+del_id +'';
+           return true;
+         }
+      }
+    </script>
+
 
 
 
@@ -78,7 +90,7 @@ while($row = mysqli_fetch_array($result)) {
 
 #if no result found
 else
-    echo "No result found";
+      echo "<h1  style='color:red;margin:100px;text-align:center'>No Result Found<h1>";
 ?>
 
 
