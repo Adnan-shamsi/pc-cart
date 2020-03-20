@@ -48,8 +48,7 @@ if(isset($_POST['search_for']))
 <?php
       }##while closing
     }//if closing
-    else
-    {
+    else{
       echo "<h1 style='color:purple;text-align:center;margin:auto'>No Result Found<h1></div>";
     }
 

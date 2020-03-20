@@ -2,9 +2,6 @@
 #############include connection.php ##########
 include('admin/connection.php');
 
-
-
-
  ?>
 
 
@@ -19,8 +16,10 @@ include('admin/connection.php');
   </head>
   <body>
 
+
+
 <?php
-###############included navbar.###########################
+############### included navbar.php  ###########################
 include_once('navbar.php');
 
  ?>
@@ -28,7 +27,7 @@ include_once('navbar.php');
 
 
 <div class="container">
- <a style="position:fixed;top:70px;right:5px;padding:5px 3px;" href="category.html" class='btn btn-secondary'>&#xab; CATEGORY</a>
+ <a style="position:fixed;top:70px;right:5px;padding:5px 3px;" href="category.php" class='btn btn-secondary'>&#xab; CATEGORY</a>
  <p style='margin-top:75px' class='h1'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </div>
 </body>
