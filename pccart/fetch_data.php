@@ -34,7 +34,7 @@ if(isset($_POST['search_for']))
   <div class="card">
     <img class="img-fluid p-xs-3" src="<?php echo 'admin/'.$prod_image_location . $row['first_image'] ?>" alt="Card image cap" style="height:20vh">
     <div class="card-body" style='height:22vh;overflow-x:hidden;overflow-y:hidden;'>
-      <h5 class="card-title"><?php echo (substr($row['Name'],30)) ?></h5>
+      <h5 class="card-title"><?php echo (substr($row['Name'],0,30)) ?></h5>
       <p class='text-info'><i class="fa fa-inr" aria-hidden="true"></i> <?php echo $row['Price'] ?> </p>
         <p class="card-text"><?php echo $row['Description'] ?></p>
      </div>
