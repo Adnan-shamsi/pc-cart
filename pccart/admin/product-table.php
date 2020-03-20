@@ -17,10 +17,8 @@ include_once ('connection.php');
 # to check if product exist or not for that dealer
 if($_SESSION['role'] == 0)
    $result = mysqli_query($conn,"SELECT * FROM product WHERE dealer_id = {$_SESSION['person_id']}") or die("Unsuccessfull");
-   
+
 #checking if there is any result
-if(mysqli_num_rows($result) == 0)
-  die('No Products');
 
 ?>
 
@@ -64,7 +62,7 @@ if (mysqli_num_rows($result) > 0) {
       while($row = mysqli_fetch_array($result)) {
         $cat_name= mysqli_query($conn,"SELECT cat_name FROM category WHERE cat_id = {$row['category_id']}") or die("Unsuccessfull");
        $row2 = mysqli_fetch_array($cat_name);
-        
+
     ?>
 
     <tr>
@@ -77,8 +75,21 @@ if (mysqli_num_rows($result) > 0) {
         <td><i class="fa fa-inr" aria-hidden="true"></i><?php echo  $row['Price']; ?></td>
         <td><?php echo  $row['Quantity']; ?></td>
         <td><a href='update-data.php?id=<?php echo $row["Product_id"]; ?>'><i class="fa fa-pencil-square-o" style="font-size:30px;color:black" aria-hidden="true"></i></a></td>
-        <td><a href='delete-product.php?pid=<?php echo $row["Product_id"]; ?>'><i class="fa fa-trash" style="font-size:30px;color:orangered" aria-hidden="true"></i></a></td>
+    <td><button class="fa fa-trash" style="font-size:30px;color:orangered" aria-hidden="true" onClick="delete_me(<?php echo $row['Product_id']; ?>)" name="delete_btn" ></button></td>
     </tr>
+    <!-- JS for popup on deleting item-->
+    <script type="text/javascript">
+      function delete_me(del_id)
+      {
+        if(confirm("Do you want to delete product " +del_id+'')){
+           window.location.href = 'delete-data.php?pid='+del_id +'';
+           return true;
+         }
+      }
+    </script>
+
+
+
     <?php
     ############### php code
     }
@@ -88,7 +99,7 @@ if (mysqli_num_rows($result) > 0) {
 ############### php code
 }
 else
-    echo "No result found";
+echo "<h1  style='color:red;margin:100px;text-align:center'>No Result Found<h1>";
 ?>
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -73,8 +73,9 @@ else if($_SESSION['role'] != 0)
              $errors[] = 'Same image file';
 
            #reducing name conflict by adding date to name and extension to the end
-           $file_name1 = date("dmyhis") . (substr($temp1[0],0,30)) . '.' . $file_ext1 ;
-           $file_name2 = date("dmyhis") . (substr($temp2[0],0,30)) . '.' . $file_ext2 ;
+           $save_date = date("dmyhis");
+           $file_name1 =$save_date . (substr($temp1[0],0,30)) . '.' . $file_ext1 ;
+           $file_name2 =$save_date . (substr($temp2[0],0,30)) . '.' . $file_ext2 ;
 
            if(empty($errors)  == true)
            {
@@ -104,8 +105,8 @@ else if($_SESSION['role'] != 0)
  ?>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="passwordchange.php?pid=<?php echo $_SESSION['person_id'] ?>">Change Password</a>
-        <a href="account-update.php?pid=<?php echo $_SESSION['person_id'] ?>">Change account info</a>
+        <a href="passwordchange.php?">Change Password</a>
+        <a href="account-update.php?">Change account info</a>
         <a href="#">Contact</a>
         <a href="logout.php">Logout</a>
       </div>
@@ -157,7 +158,7 @@ else if($_SESSION['role'] != 0)
       <input type="text" placeholder="Enter Brand Name" name="brand" required>
 
       <label for="desc">Description:</label>
-      <textarea class="form-control" rows="6" id="desc" name='desc' required></textarea>
+      <textarea class="form-control" rows="10" id="desc" name='desc' required></textarea>
 
       <label for="price"><b>Price</b></label>
       <input type="number" class="form-control" placeholder="Enter price" name="price" min='100' max='100000' required>

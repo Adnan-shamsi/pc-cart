@@ -1,3 +1,9 @@
+.dontshow{
+height:68px;
+overflow-x:hidden;
+overflow-y:hidden;
+margin:0px 0px;
+}
 @media only screen and (max-width: 575px){
     .m-xs-auto{
       margin:auto;
@@ -13,8 +19,21 @@
   }
 }
 
-@media only screen and (max-width:575px){
+@media only screen and (max-width:991px){
   .dontshow{
     display:none;
   }
+
+}
+@media only screen and (max-width:575px){
+
+  .inside-similar {
+    width:115%;
+    margin: 20px;
+  }
+}
+@media only screen and (max-width:991px) and (min-width:768px){
+  .similar:nth-child(4){
+      display:none;
+   }
 }

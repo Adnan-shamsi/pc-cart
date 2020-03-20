@@ -3,22 +3,22 @@ session_start();
 include_once ('connection.php');
 
 
-    $id= $_GET['pid'];
+    $id = $_SESSION['person_id'];
 
     if (count($_POST) > 0) {
-      $result = mysqli_query($conn, "SELECT * from person WHERE person_id='" . $_SESSION["person_id"] . "'");
+      $result = mysqli_query($conn, "SELECT * from person WHERE person_id = {$_SESSION['person_id']} ");
       $row = mysqli_fetch_array($result);
       if (md5(trim($_POST["currentPassword"])) == $row["Password"]) {
           mysqli_query($conn, "UPDATE person set password='" . md5(trim($_POST["newPassword"])) . "' WHERE person_id='" . $_SESSION["person_id"] . "'");
           $message = "Password Changed";
       } else
       $message = "Current Password is not correct";
-   
+
       if($_SESSION['role'] != 1)
       header("Location: http://localhost/pc-cart/pccart/admin/admin-panel.php");
       else if($_SESSION['role'] != 0)
-      header("Location: http://localhost/pc-cart/pccart/admin/dealer-home.php");    
-  }  
+      header("Location: http://localhost/pc-cart/pccart/admin/dealer-home.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -95,7 +95,7 @@ confirmPassword.value="";
 newPassword.focus();
 document.getElementById("confirmPassword").innerHTML = "not same";
 output = false;
-} 	
+}
 return output;
 }
 </script>
