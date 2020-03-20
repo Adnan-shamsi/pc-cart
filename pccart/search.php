@@ -46,9 +46,9 @@
             <a class="dropdown-item" href="#">Logout</a>
           </div>
   </nav>
-  <!--navbar end-->
+  <!--navbar end------------------------->
 
-  <!-- Sidebar -->
+  <!-- Sidebar ------------------------->
   <div class="w3-sidebar w3-bar-block w3-animate-left col-lg-4 col-md-5 col-6 mt-5" style="display:none;z-index:5;top:0px" id="mySidebar">
     <button id='rightShift' class="w3-bar-item w3-button w3-xxlarge" onclick="w3_close()" style='text-align:right'>&times;</button>
     <input  type='hidden' id='minPrice'></input>
@@ -71,12 +71,12 @@
        </div><br>
        <button type="button" class='btn btn-success' name="ConstraintBtn" style="float:right">Apply</button>
      </div>
-  <!--sidebar ends-->
+  <!--sidebar ends----------------------------------------->
 
-  <!-- Page Content -->
+  <!-- Page Content --------------------------------------->
   <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
-     <button class="btn btn-dark mt-5" onclick="w3_open()" style="position:absolute;top:20px;right:15px;border:3px solid grey">Filter &#977 </button>
+     <button class="btn btn-dark mt-5" onclick="w3_open()" style="position:absolute;top:20px;right:15px;border:3px solid grey">Filter &#977; </button>
 
   <!-- item List -->
     <div class="container-fluid" style='margin-top:20vh'>
@@ -185,8 +185,8 @@
     sliderDiv.slider({
         range: true,
         min: 100,
-        max: 50000,
-        values: [1, 50000],
+        max: 100000,
+        values: [1, 100000],
         slide: function (event, ui) {
             outputSpan.html(ui.values[0] + ' - ' + ui.values[1] + ' Rupees');
             $('#minPrice').val(ui.values[0]);

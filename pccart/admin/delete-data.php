@@ -23,13 +23,12 @@ if($_SESSION['role'] == 0 && isset($_GET['pid']))
 {
   #unlinking product image file
   $get_image_pro = mysqli_query($conn,"SELECT * FROM product WHERE Product_id = {$_GET['pid']} ") or die("unsucessful");
-
   $r = mysqli_fetch_array($get_image_pro);
-  unlink($pro_image_location . $r['cat_img']);
-
+  unlink($prod_image_location . $r['first_image']);
+  unlink($prod_image_location . $r['second_image']);
 
   #deleting product row
-  $sql = "DELETE FROM product WHERE Product_id = {$_GET['pid']} AND person_id ={$_SESSION['person_id']} ";
+  $sql = "DELETE FROM product WHERE Product_id = {$_GET['pid']} AND dealer_id = {$_SESSION['person_id']} ";
   $result = mysqli_query($conn,$sql) or die("unsucessful");
   header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/product-table.php');
 }

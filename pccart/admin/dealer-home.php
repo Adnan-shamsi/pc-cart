@@ -73,8 +73,9 @@ else if($_SESSION['role'] != 0)
              $errors[] = 'Same image file';
 
            #reducing name conflict by adding date to name and extension to the end
-           $file_name1 = date("dmyhis") . (substr($temp1[0],0,30)) . '.' . $file_ext1 ;
-           $file_name2 = date("dmyhis") . (substr($temp2[0],0,30)) . '.' . $file_ext2 ;
+           $save_date = date("dmyhis");
+           $file_name1 =$save_date . (substr($temp1[0],0,30)) . '.' . $file_ext1 ;
+           $file_name2 =$save_date . (substr($temp2[0],0,30)) . '.' . $file_ext2 ;
 
            if(empty($errors)  == true)
            {
