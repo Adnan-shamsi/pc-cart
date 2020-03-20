@@ -81,7 +81,7 @@ else if($_SESSION['role'] != 0)
            {
              #insert category into the table
 
-            $insert_product_sql = "INSERT INTO `product`(`Name`, `category_id`, `Brand`, `Desc`, `Price`, `Quantity`, `first_image`, `second_image`, `Dealer_id`)
+            $insert_product_sql = "INSERT INTO `product`(`Name`, `category_id`, `Brand`, `Description`, `Price`, `Quantity`, `first_image`, `second_image`, `Dealer_id`)
                                    VALUES
                                    ('{$product_name}',{$category_id} ,'{$brand}','{$description}',{$price},{$quantity},'{$file_name1}','{$file_name2}','{$_SESSION['person_id']}')";
 

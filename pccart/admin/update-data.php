@@ -194,7 +194,7 @@
        $insert_product_sql = "UPDATE `product`
                               SET
                               `Name`='{$product_name}' , `category_id` ={$category_id} ,
-                              `Brand` = '{$brand}', `Desc` ='{$description}',
+                              `Brand` = '{$brand}', `Description` ='{$description}',
                               `Price` = {$price}, `Quantity` = {$quantity} WHERE `Product_id` = $id ";
 
       mysqli_query($conn,$insert_product_sql) or die('Query failed');
