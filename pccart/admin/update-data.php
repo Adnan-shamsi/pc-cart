@@ -194,7 +194,7 @@
        $insert_product_sql = "UPDATE `product`
                               SET
                               `Name`='{$product_name}' , `category_id` ={$category_id} ,
-                              `Brand` = '{$brand}', `Desc` ='{$description}',
+                              `Brand` = '{$brand}', `Description` ='{$description}',
                               `Price` = {$price}, `Quantity` = {$quantity} WHERE `Product_id` = $id ";
 
       mysqli_query($conn,$insert_product_sql) or die('Query failed');
@@ -338,7 +338,7 @@ else{
       <input class="form-control" type="text" placeholder="Enter Brand Name" name="brand" value="<?php echo $row_upper['Brand'] ?>" required>
 
       <label for="desc">Description:</label>
-      <textarea class="form-control" rows="10" id="desc" name='desc' required> <?php echo $row_upper['Desc'] ?></textarea>
+      <textarea class="form-control" rows="10" id="desc" name='desc' required> <?php echo $row_upper['Description'] ?></textarea>
 
       <label for="price"><b>Price</b></label>
       <input type="number" class="form-control" placeholder="Enter price" name="price" min='100' max='100000' value="<?php echo $row_upper['Price'] ?>" required>
