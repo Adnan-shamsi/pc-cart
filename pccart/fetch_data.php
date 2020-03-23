@@ -32,7 +32,7 @@ if(isset($_POST['search_for']))
 
 <div class="col-lg-3 col-md-4 col-sm-6 col-9 my-1 m-xs-auto">
   <div class="card">
-    <a href="description.php?id=<?php echo $row['Product_id']?>"><img class="img-fluid p-xs-3" src="<?php echo 'admin/'.$prod_image_location . $row['first_image'] ?>" alt="Card image cap" style="height:20vh">
+    <img class="img-fluid p-xs-3" src="<?php echo 'admin/'.$prod_image_location . $row['first_image'] ?>" alt="Card image cap" style="height:20vh">
     <div class="card-body" style='height:22vh;overflow-x:hidden;overflow-y:hidden;'>
       <h5 class="card-title"><?php echo (substr($row['Name'],0,30)) ?></h5>
       <p class='text-info'><i class="fa fa-inr" aria-hidden="true"></i> <?php echo $row['Price'] ?> </p>

@@ -4,6 +4,9 @@ include('admin/connection.php');
 
  ?>
 
+
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -13,11 +16,15 @@ include('admin/connection.php');
   </head>
   <body>
 
+
+
 <?php
 ############### included navbar.php  ###########################
 include_once('navbar.php');
 
  ?>
+
+
 
 <div class="container">
  <a style="position:fixed;top:70px;right:5px;padding:5px 3px;" href="category.php" class='btn btn-secondary'>&#xab; CATEGORY</a>
