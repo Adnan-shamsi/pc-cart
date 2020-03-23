@@ -30,22 +30,22 @@ else{
 <!DOCTYPE html>
 <html>
 <title>Search-Items</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<link rel="stylesheet" href="css/style.css">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="jqueryui/jquery-ui.min.css">
+<link rel="stylesheet" href="css/style.css">
+
 <script src="jqueryui/external/jquery/jquery.js"></script>
 <script src='jqueryui/jquery-ui.min.js'></script>
 
 <body>
 
-
-  <!--navbar start----------------------->
 
 <?php
 ############## included navbar.php  ##################
@@ -53,7 +53,6 @@ include_once('navbar.php');
 
  ?>
 
-  <!--navbar end------------------------->
 
 
 
@@ -174,20 +173,23 @@ include_once('navbar.php');
 ///////////  for applying filter only on clicking apply button
 
 $(document).ready(function () {
-
-    $('.ApplyBtn').click(apply_filter);
-    apply_filter();
     // onclink apply
+    $('.ApplyBtn').click(apply_filter);
+
+    // to call apply filter on starting of the page
+    apply_filter();
+
     function apply_filter()
     {
       var search_for = "<?php echo $search ?>";
       var brand = get_filter('brand');
-//         alert(minimum_price);
+      var minimum_price = $('#minPrice').val();
+      var maximum_price = $('#maxPrice').val();
       $.ajax({
             url:"fetch_data.php",
             method:"POST",
-            data:{search_for:search_for,minimum_price:$('#minPrice').val(),
-                  maximum_price:$('#maxPrice').val(),brand:brand
+            data:{search_for:search_for , minimum_price:minimum_price,
+                  maximum_price:maximum_price , brand:brand
             },
             success:function(data){
               $('.filter_data').html(data);
@@ -210,14 +212,5 @@ $(document).ready(function () {
 
 })
 </script>
-
-
-
-
-
-
-
-
-
 
 </html>
