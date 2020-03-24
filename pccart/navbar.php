@@ -29,10 +29,10 @@
   </div>
   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="icon/login.png" width="30" height="30" alt="cart"></a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="login.html">login</a>
+          <a class="dropdown-item" href="login.php">login</a>
           <a class="dropdown-item" href="admin/passwordchange.html">Password change</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Logout</a>
+          <a class="dropdown-item" href="logout.php">Logout</a>
         </div>
 </nav>
 <!--navbar end------------------------->

@@ -30,7 +30,7 @@ if (!isset($_SESSION['person_id']) && isset($_POST['submit']))
         $error_msg = "<h2 style='color:red;text-align:center;margin-top:10px;'>Sorry enter the valid username and password</h2>";
     }
     else
-      $error_msg = "<h2 style='color:red;text-align:center;margin-top:10px;'>Username or password fields</h2>";
+      $error_msg = "<h2 style='color:red;text-align:center;margin-top:10px;'>Username or password fields Empty</h2>";
 }
 if(isset($_SESSION['role']))
 {
