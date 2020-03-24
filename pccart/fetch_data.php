@@ -30,15 +30,19 @@ if(isset($_POST['search_for']))
       while($row = mysqli_fetch_array($result)){
 ?>
 
-<div class="col-lg-3 col-md-4 col-sm-6 col-9 my-1 m-xs-auto">
-  <div class="card">
-    <a href="description.php?id=<?php echo $row['Product_id']?>"><img class="img-fluid p-xs-3" src="<?php echo 'admin/'.$prod_image_location . $row['first_image'] ?>" alt="Card image cap" style="height:20vh">
+<div class="col-lg-3 col-md-4 col-sm-6 col-8 my-1 m-xs-auto ">
+  <div class="card expand">
+   <div class="make-flex">
+
+    <a  style="display: block;margin:0px -10px"  href="<?php echo 'description.php?pid='. $row['Product_id'] ?>"><img class="col-12 img-onsmall" src="<?php echo 'admin/'.$prod_image_location . $row['first_image'] ?>" alt="Card image cap" style="height:20vh">
     <div class="card-body" style='height:22vh;overflow-x:hidden;overflow-y:hidden;'>
-      <h5 class="card-title"><?php echo (substr($row['Name'],0,30)) ?></h5>
+      <h5 class="card-title"><?php echo (substr($row['Name'],0,30)) ?></h5></a>
       <p class='text-info'><i class="fa fa-inr" aria-hidden="true"></i> <?php echo $row['Price'] ?> </p>
-        <p class="card-text"><?php echo $row['Description'] ?></p>
-     </div>
-    <div class='pb-2 pt-1 pb-lg-1 mx-2'>
+      <p class="card-text"><?php echo $row['Description'] ?></p>
+    </div>
+  </div>
+
+   <div class='pb-2 pt-1 pb-lg-1 mx-2'>
         <button class='btn btn-success' type="button" name="button">Buy Now</button>
         <button type="button" name="button" class='btn btn-warning' style='float:right'>Add To <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
    </div>

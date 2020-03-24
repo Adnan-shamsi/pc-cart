@@ -121,6 +121,41 @@ body {
   background-color: white;
 }
 
+.increment,
+.decrement {
+  color: rebeccapurple;
+  background: white;
+  width: 30px;
+  height: 30px;
+  font-size: 25px;
+  outline: 0;
+  border: 0;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.product-quantity input {
+  height: 30px;
+  width: 40px;
+  border-radius: 5px;
+  border: 2px solid rebeccapurple;
+  padding: 5px 12px 5px 12px;
+}
+
+.product-quantity {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: start;
+}
+
+.product-quantity:first-of-type {
+  justify-content: center;
+}
 @media (max-width: 1535px) {
   .main_grid {
     grid-template-columns: 1fr;
