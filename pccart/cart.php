@@ -19,47 +19,11 @@ if (isset($_SESSION['customer_id'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" type="text/css" media="screen" href="./css/cart.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/cart.css" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <style>
-    .increment,
-    .decrement {
-      color: rebeccapurple;
-      background: white;
-      width: 30px;
-      height: 30px;
-      font-size: 25px;
-      outline: 0;
-      border: 0;
-
-    }
-
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-
-    .product-quantity input {
-      height: 30px;
-      width: 40px;
-      border-radius: 5px;
-      border: 2px solid rebeccapurple;
-      padding: 5px 12px 5px 12px;
-    }
-
-    .product-quantity {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      justify-items: start;
-    }
-
-    .product-quantity:first-of-type {
-      justify-content: center;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" media="screen" href="css/cart.css" />
 </head>
 
 <body>
@@ -211,7 +175,6 @@ if (isset($_SESSION['customer_id'])) {
       // console.log($('#proquanta').val());
     })
   </script>
-  
 
 </body>
 
