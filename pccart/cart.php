@@ -19,14 +19,15 @@ if (isset($_SESSION['customer_id'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" type="text/css" media="screen" href="css/cart.css" />
+  <link rel="stylesheet" type="text/css" href="css/cart.css" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" media="screen" href="css/cart.css" />
+  
 </head>
 
 <body>
+
   <div class="main_grid">
     <div class="shopping_cart">
       <h1>Pc-Cart</h1>
@@ -132,16 +133,13 @@ if (isset($_SESSION['customer_id'])) {
       </div>
     </div>
   </div>
-  <style>
-    .product-total::after,
-    .product-total::before {
-      display: none;
-    }
-  </style>
   <script>
     $(document).ready(function() {
       $('.product-removal').on('click', function() {
         $(this).parent('.product').remove();
+        update();
+      })
+      $('.product').ready(function() {
         update();
       })
 
@@ -152,15 +150,16 @@ if (isset($_SESSION['customer_id'])) {
         let i = 0;
         $('.product-total').each(function() {
           if (i != 0) {
-            total += Number($(this).text());
             totalItems += Number($(this).siblings('.product-quantity').children('#proquanta').val());
             indi_total = ($(this).siblings('.product-price').text()) * ($(this).siblings('.product-quantity').children('#proquanta').val());
-            $(this).html(`${indi_total}`);
+            $(this).html(`${indi_total.toFixed(2)}`);
+            total += Number($(this).text());
           }
           i++;
         })
         $('.total_items').html(`${totalItems} items `);
-        $('.total_price').html(`Rs  ${total}`);
+        $('.total_price').html(`Rs  ${total.toFixed(2)}`);
+        $('.total_summary p:nth-child(2)').html(`Rs  ${total.toFixed(2)}`);
       }
       $('.increment').on('click', function() {
         // console.log($(this).siblings('#proquanta')[0].value);
@@ -175,6 +174,7 @@ if (isset($_SESSION['customer_id'])) {
       // console.log($('#proquanta').val());
     })
   </script>
+
 
 </body>
 
