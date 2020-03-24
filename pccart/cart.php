@@ -1,7 +1,8 @@
 <?php
-
+session_start();
 ###included connection.php which is in admin
 include("admin/connection.php");/*
+
 if (isset($_SESSION['customer_id'])) {
   $query = 'SELECT or.product_id from order as or';
 } else {
@@ -23,103 +24,77 @@ if (isset($_SESSION['customer_id'])) {
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  
+
 </head>
 
 <body>
 
   <div class="main_grid">
+    <!--table heading--------------->
     <div class="shopping_cart">
       <h1>Pc-Cart</h1>
       <div class="product">
-        <div class="product-details">
-          <p>Product Details</p>
-        </div>
-        <div class="product-quantity">
-          Quantity
-        </div>
+        <div class="product-quantity">Name</div>
+        <div class="product-quantity">Quantity</div>
         <div class="product-price">Price</div>
         <div class="product-removal"></div>
         <div class="product-total">Total</div>
       </div>
+<!--table heading ends------------->
+
+<?php
+foreach($_SESSION['cart'] as $value)
+{
+  $query = "SELECT * FROM product WHERE product_id = $value ";
+  $result = mysqli_query($conn,$query) or die('Unsuccessful');
+  $row = mysqli_fetch_array($result);
+
+
+?>
+
+<!--product ----------------------->
       <div class="product">
+
         <div class="product-details">
+          <!--product image-->
           <div class="product-image">
-            <img src="image/1.jpg" />
+            <img src="<?php echo 'admin/'. $prod_image_location . $row['first_image'] ?>" />
           </div>
-          <div class="product-title">Gaming Machines</div>
-          <div class="product-description">
-            Product Code X&R@)PX
-          </div>
+          <!--product name-->
+          <div class="product-title"> <?php echo $row['Name'] ?></div>
         </div>
+        <!--product quantity-->
         <div class="product-quantity">
           <button class="decrement">-</button>
-          <input type="number" id="proquanta" value="2" max="10" min="1" />
+          <input type="number" id="proquanta" value='1' max="10" min="1" />
           <button class="increment">+</button>
         </div>
-        <div class="product-price">2.99</div>
-        <div class="product-removal">
-          <button class="remove-product">
+        <!--product price-->
+        <div class="product-price"><?php echo $row['Price'] ?></div>
+        <!--remove btn-->
+        <div class="product-removal" >
+          <button class="remove-product" value ="<?php echo $row['Product_id'] ?>">
             Remove
           </button>
         </div>
+        <!--product total-->
         <div class="product-total">
 
-          <p>79</p>
+          <p><?php $row['Price'] ?></p>
         </div>
       </div>
-      <div class="product">
-        <div class="product-details">
-          <div class="product-image">
-            <img src="image/10.jpg" />
-          </div>
-          <div class="product-title">Gaming Machines</div>
-          <div class="product-description">
-            Product Code X&R@)PX
-          </div>
-        </div>
-        <div class="product-quantity">
-          <button class="decrement">-</button>
-          <input type="number" id="proquanta" value="1" max="10" min="1" />
-          <button class="increment">+</button>
 
-        </div>
-        <div class="product-price">4.67</div>
-        <div class="product-removal">
-          <button class="remove-product">
-            Remove
-          </button>
-        </div>
-        <div class="product-total">79</div>
-      </div>
-      <div class="product">
-        <div class="product-details">
-          <div class="product-image">
-            <img src="image/2.jpg" />
-          </div>
-          <div class="product-title">Gaming Machines</div>
-          <div class="product-description">
-            Product Code X&R@)PX
-          </div>
-        </div>
-        <div class="product-quantity">
-          <button class="decrement">-</button>
-          <input type="number" id="proquanta" value="2" max="10" min="1" />
-          <button class="increment">+</button>
-        </div>
-        <div class="product-price">4.67</div>
-        <div class="product-removal">
-          <button class="remove-product">
-            Remove
-          </button>
-        </div>
-        <div class="product-total">79</div>
-      </div>
-    </div>
-    <div class="order_summary">
+
+<?php
+}// foreach loop closing
+ ?>
+
+  <div class="order_summary">
       <h1>Order Summary</h1>
       <div class="order_summary_of_cart">
-        <div class="total_items">11 items</div>
+        <!--total item-->
+        <div class="total_items"></div>
+        <!--total price-->
         <div class="total_price">Rs 200</div>
         <p>Delivery Fee</p>
         <p>Rs 0.0</p>
@@ -129,15 +104,29 @@ if (isset($_SESSION['customer_id'])) {
         <p>Rs 0.0</p>
       </div>
       <div class="Summary_wrap">
-        <button>Buy Now</button>
+        <button class="BUY">Buy Now</button>
       </div>
     </div>
   </div>
   <script>
     $(document).ready(function() {
       $('.product-removal').on('click', function() {
-        $(this).parent('.product').remove();
-        update();
+        //getting id of remove product so to remove from session
+        var product_id = $(this).children(".remove-product").val();
+        //moving to another file to remove this product from session
+        $.ajax({
+              url:"deleteCartProduct.php",
+              method:"POST",
+              data:{   product_id:product_id
+                   },
+              success:function(data){
+                alert('Successfully removed product')
+              }
+        });
+
+         $(this).parent('.product').remove();
+         update();
+
       })
       $('.product').ready(function() {
         update();
