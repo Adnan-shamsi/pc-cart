@@ -118,9 +118,11 @@ include_once('navbar.php');
     </div>
     </div>
 <!--item list close------------------------------------------------------------------>
+<span class='alert'></span>
+
 
 </body>
 <script src='js/slider.js'>//for slider</script>
 <script src='js/fetch-data.js'>//for fetching data</script>
-<script src='js/addToCart.js'>//for add to cart</script>
+
 </html>
