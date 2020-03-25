@@ -43,14 +43,42 @@ if(isset($_POST['search_for']))
   </div>
 
    <div class='pb-2 pt-1 pb-lg-1 mx-2'>
-        <button class='btn btn-success' type="button" name="button">Buy Now</button>
-        <button type="button" name="button" class='btn btn-warning' style='float:right'>Add To <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+        <button class='btn btn-success buyBtn'   value="<?php echo $row['Product_id'] ?>">Buy Now</button>
+        <button class='btn btn-warning cartBtn' value="<?php echo $row['Product_id'] ?>" style='float:right'>Add To <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
    </div>
  </div>
 </div>
 
 <?php
       }##while closing
+?>
+
+<script type="text/javascript">
+//this script is meant for add to cart and buy now
+$(document).ready(function () {
+   // onclink apply
+   $('.buyBtn').click(add_to_cart);
+   $('.cartBtn').click(add_to_cart);
+
+   function add_to_cart(){
+
+     var product_id =$(this).val();
+     $.ajax({
+           url:"addToCart.php",
+           method:"POST",
+           data:{   product_id:product_id
+                },
+           success:function(data){
+             $('.alert').html(data);
+           }
+     });
+   };
+});
+
+</script>
+
+
+<?php
     }//if closing
     else{
       echo "<h1 style='color:purple;text-align:center;margin:auto'>No Result Found<h1></div>";

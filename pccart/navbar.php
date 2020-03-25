@@ -17,7 +17,7 @@
 
       <li class="nav-item">
       <!--cart icon --->
-        <a class="nav-link" href="cart.html"><img src="icon/cart.png" width="30" height="30" alt="cart"> </a>
+        <a class="nav-link" href="cart.php"><img src="icon/cart.png" width="30" height="30" alt="cart"> </a>
       </li>
     </ul>
     <!--search form  ----------->
