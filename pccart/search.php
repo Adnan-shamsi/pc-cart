@@ -118,6 +118,8 @@ include_once('navbar.php');
     </div>
     </div>
 <!--item list close------------------------------------------------------------------>
+
+<!--just to show alert of carts-->
 <span class='alert'></span>
 
 

@@ -100,11 +100,16 @@ $(document).ready(function() {
         price: price
       },
       success: function(data) {
-        alert(`Your order is placed ${data}`);
+        if(data !='success')
+        alert('This much Quantity of '+product_name+" unavailable" +data);
       }
     });
   }
+//removing product after buying
+  $(".product").remove();
+  update();
+
   $('.close').click();
   });
- 
+
 });

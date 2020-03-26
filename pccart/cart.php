@@ -1,13 +1,13 @@
 <?php
 session_start();
 ###included connection.php which is in admin
-include("admin/connection.php");/*
+include("admin/connection.php");
 
 if (isset($_SESSION['customer_id'])) {
   $query = 'SELECT or.product_id from order as or';
 } else {
   header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login.php');
-}*/
+}
 
 ?>
 
