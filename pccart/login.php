@@ -14,8 +14,9 @@
       #checking if username or password is not empty
       if (!empty($_POST['username']) && !empty($_POST['password']))
       {
-        $user_password = md5($user_password);
+       // $user_password = md5($user_password);
         $query = "SELECT * FROM customer WHERE UserName ='$user_username' AND Password = '$user_password' ";
+        echo $query;
         $data = mysqli_query($conn, $query) or die('Query failed');
 
         if (mysqli_num_rows($data) == 1)

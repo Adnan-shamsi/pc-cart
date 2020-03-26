@@ -269,6 +269,19 @@ input::-webkit-inner-spin-button {
     grid-template-columns: 1fr 1fr;
     padding: 10px;
   }
+
+}
+
+@media (max-width:600px) {
+  .modal-content {
+    flex-direction: column;
+    align-content: flex-end;
+  }
+
+  .close {
+    padding: 10px;
+  }
+
 }
 
 @media (max-width: 560px) {

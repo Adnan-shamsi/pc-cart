@@ -6,7 +6,7 @@ include("admin/connection.php");/*
 if (isset($_SESSION['customer_id'])) {
   $query = 'SELECT or.product_id from order as or';
 } else {
-  header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login.html');
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login.php');
 }*/
 
 ?>
@@ -25,6 +25,7 @@ if (isset($_SESSION['customer_id'])) {
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
+
 <body>
 
   <div class="main_grid">
@@ -81,7 +82,7 @@ if (isset($_SESSION['customer_id'])) {
             <p><?php $row['Price'] ?></p>
           </div>
         </div>
-
+        <input type="hidden" class="hiddenField" value="<?php echo $row['Product_id'] ?>">
 
       <?php
       } // foreach loop closing
@@ -107,8 +108,8 @@ if (isset($_SESSION['customer_id'])) {
           <div class="modal-content">
 
             <label for="Address">Address</label>
-            <input type="text" name="Address" placeholder="Enter your Address" />
-            <button>Place Order</button>
+            <input type="text" name="Address" id="Address" placeholder="Enter your Address" />
+            <button class="PlaceOrder">Place Order</button>
             <span class="close">&times;</span>
           </div>
         </div>
