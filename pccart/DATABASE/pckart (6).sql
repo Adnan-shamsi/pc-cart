@@ -77,12 +77,14 @@ INSERT INTO `customer` (`Customer_id`, `FirstName`, `LastName`, `UserName`, `Pas
 --
 
 CREATE TABLE `orders` (
-  `Order_id` int(11) NOT NULL,
+ `Order_id` int(11) NOT NULL,
   `product-id` int(11) NOT NULL,
   `Customer_id` int(11) NOT NULL,
   `Address` varchar(40) NOT NULL,
   `status` int(1) NOT NULL,
-  `Ordered` int(1) NOT NULL
+  `Ordered` int(1) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
