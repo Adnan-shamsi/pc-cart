@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2020 at 05:43 AM
+-- Generation Time: Mar 26, 2020 at 07:30 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -68,7 +68,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`Customer_id`, `FirstName`, `LastName`, `UserName`, `Password`, `Phone`, `Email`) VALUES
-(1, 'anas', 'intekhaab', 'anas', '12345', '2345678902', 'anas@gmail.com');
+(1, 'anas', 'intekhaab', 'anas', '12345', '2345678902', 'anas@gmail.com'),
+(3, 'q', 'q', 'q', '7694f4a66316e53c8cdd9d9954bd611d', '9814763001', 'q@q.q');
 
 -- --------------------------------------------------------
 
@@ -77,15 +78,22 @@ INSERT INTO `customer` (`Customer_id`, `FirstName`, `LastName`, `UserName`, `Pas
 --
 
 CREATE TABLE `orders` (
- `Order_id` int(11) NOT NULL,
-  `product-id` int(11) NOT NULL,
+  `Order_id` int(11) NOT NULL,
+  `Product_id` int(11) NOT NULL,
   `Customer_id` int(11) NOT NULL,
   `Address` varchar(40) NOT NULL,
   `status` int(1) NOT NULL,
-  `Ordered` int(1) NOT NULL,
   `Quantity` int(11) NOT NULL,
-  `price` float NOT NULL
+  `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`Order_id`, `Product_id`, `Customer_id`, `Address`, `status`, `Quantity`, `price`) VALUES
+(1, 8, 3, 'E-111e', 1, 2, 120000),
+(2, 8, 3, 'DFSF', 1, 1, 60000);
 
 -- --------------------------------------------------------
 
@@ -140,7 +148,7 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`Product_id`, `Name`, `category_id`, `Brand`, `Description`, `Price`, `Quantity`, `first_image`, `second_image`, `Dealer_id`) VALUES
 (7, 'LENOVO IDEAPAD 330', 2, 'LENOVO', 'i5 8-generation \r\nFHD \r\nSLIM black colour', 50000, 3, '200320060658download (1).png', '200320060658download.jpg', 14),
-(8, 'MAC 323', 2, 'APPLE', 'asdga\r\nsdggag\r\ndgadgagsgs', 60000, 5, '200320061000downloadj.jpg', '200320061000downloadq.jpg', 14),
+(8, 'MAC 323', 2, 'APPLE', 'asdga\r\nsdggag\r\ndgadgagsgs', 60000, 2, '200320061000downloadj.jpg', '200320061000downloadq.jpg', 14),
 (9, 'LENOVO THINKPAD 440', 2, 'LENOVO', 'gfsdg\r\nadsfsgsdg\r\ndsgdssgsg\r\nadfs', 30000, 5, '200320061107download.jpg', '200320061107download3.jpg', 14),
 (10, 'DELL VOTRO 980', 2, 'DELL', 'safasga\r\nsdfhdss\r\ngdsgsghs', 63000, 4, '200320061254downloadq.jpg', '200320061254downloadz.jpg', 14);
 
@@ -218,13 +226,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `Customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `Order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `person`

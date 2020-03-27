@@ -4,17 +4,17 @@
 ?>
 
 <?php
-
+############ login verification ############
   $error_msg = "";
   if (!isset($_SESSION['customer_id']) && isset($_POST['submit']))
   {
       $user_username = mysqli_real_escape_string($conn, trim($_POST['username']));
       $user_password = mysqli_real_escape_string($conn, trim($_POST['password']));
-
+      $user_password = md5($user_password);
       #checking if username or password is not empty
       if (!empty($_POST['username']) && !empty($_POST['password']))
       {
-        $user_password = md5($user_password);
+       // $user_password = md5($user_password);
         $query = "SELECT * FROM customer WHERE UserName ='$user_username' AND Password = '$user_password' ";
         $data = mysqli_query($conn, $query) or die('Query failed');
 
@@ -24,6 +24,7 @@
           $row = mysqli_fetch_array($data);
           $_SESSION['customer_id'] = $row['Customer_id'];
           $_SESSION['username'] = $row['UserName'];
+          $_SESSION['cart'] = array();
         }
         else
           $error_msg = "<h2 style='color:red;text-align:center;margin-top:10px;'>Sorry enter the valid username and password</h2>";

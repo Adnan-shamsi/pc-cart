@@ -58,6 +58,10 @@ if(isset($_POST['search_for']))
 $(document).ready(function () {
    // onclink apply
    $('.buyBtn').click(add_to_cart);
+   $('.buyBtn').click(function(){
+   window.location.href='cart.php';
+   })
+
    $('.cartBtn').click(add_to_cart);
 
    function add_to_cart(){
