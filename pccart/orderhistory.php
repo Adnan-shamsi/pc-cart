@@ -65,25 +65,16 @@ $result2 = mysqli_query($conn,"SELECT * FROM product WHERE Product_id = {$row['P
             echo "cancelled";
         }
         ?></td>
-        <td><button onClick="cancel_me(<?php echo $row['Product_id']; ?>)" name="delete_btn" >Cancel Order</button></td>
+        
+        <td><a href='delete.php?oid=<?php echo $row["Order_id"]; ?>'><i class="fa fa-trash" style="font-size:30px;color:orangered" aria-hidden="true"></i></a></td>
     </tr>
 
-    <!-- JS for popup on deleting item-->
-    <script type="text/javascript">
-      function cancel_me(del_id)
-      {
-          if(confirm("Do you want to cancel order :" +del_id +'')){
-             <?php 
-             $res = mysqli_query($conn,"UPDATE orders SET status = 4 WHERE Order_id = {$row['Order_id']}") or die("unsucssfull");
-             ?>
-             return true;
-         }
-      }
-    </script>
-
+    
 <?php
 }#closing of while loop
 ?>
+
+
 
 </table>
  <?php
