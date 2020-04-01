@@ -20,6 +20,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style></style>
   </head>
 
@@ -30,18 +31,36 @@
           <li class="logo"><a href="">Pc-Cart</a></li>
           <li class="search_whole">
             <input type="text" class="search" />
-            <a href=""
-              ><i class="material-icons md-24 blue600md-light">build</i></a
-            >
+            <a href=""><i class="material-icons">build</i></a>
           </li>
           <li><a href="">Home</a></li>
-          <li><a href="">Cart</a></li>
           <li>
-            <a href=""><i class="fas fa-user-ninja"></i></a>
+            <a href=""><i class="fas fa-shopping-cart"></i></a>
+          </li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <i class="fas fa-user-ninja"></i>
+              </button>
+            </div>
+            <div class="dropdown-content">
+              <a href="">Login</a>
+              <a href="">Password Change</a>
+              <a href="">Logout</a>
+            </div>
           </li>
         </ul>
       </nav>
     </header>
+    <script>
+      $(document).ready(function() {
+        $(".dropdown").on("click", function() {
+          $(this)
+            .siblings(".dropdown-content")
+            .toggleClass("show");
+        });
+      });
+    </script>
     <script
       src="https://kit.fontawesome.com/fcba9aa1f0.js"
       crossorigin="anonymous"
