@@ -1,3 +1,4 @@
+@import './glider.css';
 .unstyle-list {
   list-style-type: none;
   text-decoration: none;
@@ -7,7 +8,7 @@
 }
 
 .footer {
-  background-color: rebeccapurple;
+  background: linear-gradient(to right, #3c3b3f, #605c3c);
   clip-path: polygon(0% 0%, 100% 15%, 100% 100%, 0% 100%);
   color: #d6d6d6;
 }
@@ -75,6 +76,57 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Arial;
+}
+
+.glider {
+  overflow: hidden;
+}
+
+.glider-contain {
+  height: 100vh;
+  width: 85%;
+  padding: 2%;
+}
+
+.glider-prev,
+.glider-next {
+  top: 50%;
+}
+
+h1 {
+  font-family: Montserrat;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+figure {
+  margin: 1em;
+  padding: 1em;
+}
+
+figcaption {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  color: #b5b5b5;
+}
+
+figcaption > * {
+  padding: 0.2em 0.5em;
+}
+
+[data-scroll] {
+  transition: all 4s;
+}
+
+[data-scroll=in] {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+[data-scroll=out] {
+  opacity: 0;
+  transform: translateX(-300px);
 }
 
 .search_whole {
@@ -166,6 +218,20 @@ nav ul {
 
 .show {
   display: block;
+}
+
+.SignUp {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 16px;
+  color: #fdfdfd;
+  background: linear-gradient(to right, #41295a, #2f0743);
+}
+.SignUp_text {
+  flex: 1;
+}
+.SignUp_button {
+  flex: 1;
 }
 
 /*# sourceMappingURL=index.css.map */

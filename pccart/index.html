@@ -19,6 +19,10 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style></style>
   </head>
@@ -51,6 +55,91 @@
         </ul>
       </nav>
     </header>
+    <section style="height: 100vh; background-color: yellow;">
+      <h1
+        style="font-family: Montserrat; text-align: center; margin-bottom: 2em;"
+      >
+        Hello
+      </h1>
+    </section>
+    <div class="glider-contain">
+      <h1 data-scroll>What's Trending</h1>
+      <div class="glider">
+        <figure class="port-item">
+          <img
+            src="./img/andrew-mantarro-dQ2AGk0lThs-unsplash.jpg"
+            alt="portfolio item"
+          />
+          <figcaption class="port-desc">
+            <p>"Beautiful"</p>
+            <a href="" class="button button-small button-accent">Buy Now</a>
+          </figcaption>
+        </figure>
+        <figure class="port-item">
+          <img
+            src="./img/bruce-mars-xj8qrWvuOEs-unsplash.jpg"
+            alt="portfolio item"
+          />
+          <figcaption class="port-desc">
+            <p>"Beautiful"</p>
+            <a href="" class="button button-small button-accent">Buy Now</a>
+          </figcaption>
+        </figure>
+        <figure class="port-item">
+          <img
+            src="./img/christian-wiediger-u03OCRlSd2M-unsplash.jpg"
+            alt="portfolio item"
+          />
+          <figcaption class="port-desc">
+            <p>"Beautiful"</p>
+            <a href="" class="button button-small button-accent">Buy Now</a>
+          </figcaption>
+        </figure>
+        <figure class="port-item">
+          <img
+            id="sky"
+            src="./img/florian-olivo-Mf23RF8xArY-unsplash.jpg"
+            alt="portfolio item"
+          />
+          <figcaption class="port-desc">
+            <p>"Beautiful"</p>
+            <a href="" class="button button-small button-accent">Buy Now</a>
+          </figcaption>
+        </figure>
+
+        <figure class="port-item">
+          <img
+            id="sky"
+            src="./img/kari-shea-1SAnrIxw5OY-unsplash.jpg"
+            alt="portfolio item"
+          />
+          <figcaption class="port-desc">
+            <p>"Beautiful"</p>
+            <a href="" class="button button-small button-accent">Buy Now</a>
+          </figcaption>
+        </figure>
+        <figure class="port-item">
+          <img
+            id="sky"
+            src="./img/lawrence-sXQ-yimxgCg-unsplash.jpg"
+            alt="portfolio item"
+          />
+          <figcaption class="port-desc">
+            <p>"Beautiful"</p>
+            <a href="" class="button button-small button-accent">Buy Now</a>
+          </figcaption>
+        </figure>
+      </div>
+
+      <button role="button" aria-label="Previous" class="glider-prev">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <button role="button" aria-label="Next" class="glider-next">
+        <i class="fas fa-arrow-right"></i>
+      </button>
+      <div role="tablist" class="dots"></div>
+    </div>
+
     <footer>
       <div class="footer">
         <div class="footer1">
@@ -101,15 +190,11 @@
         </div>
       </div>
     </footer>
-    <script>
-      $(document).ready(function() {
-        $(".dropdown").on("click", function() {
-          $(this)
-            .siblings(".dropdown-content")
-            .toggleClass("show");
-        });
-      });
-    </script>
+
+    <script src="./js/glider.js"></script>
+
+    <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+    <script src="js/index.js"></script>
     <script
       src="https://kit.fontawesome.com/fcba9aa1f0.js"
       crossorigin="anonymous"
