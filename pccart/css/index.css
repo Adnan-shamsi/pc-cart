@@ -1,4 +1,188 @@
 @import './glider.css';
+.search_whole {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+.search_whole input {
+  border: 0;
+  padding: 5px;
+  border-radius: 500px;
+  font-size: 20px;
+  outline: 0;
+  color: white;
+  background-color: #000000;
+}
+.search_whole input:focus {
+  caret-color: red;
+}
+.search_whole i {
+  color: #bfbfbf;
+}
+
+.search_whole > * {
+  padding: 0 5%;
+}
+
+.logo a {
+  font-family: "Biryani", sans-serif;
+  color: #954cdd;
+  font-size: 2em;
+  text-align: center;
+}
+
+header {
+  border-bottom: 2px solid #888888;
+}
+
+nav ul {
+  list-style-type: none;
+  font-size: 1.5em;
+}
+nav ul a {
+  text-decoration: none;
+  transition: transform 2s;
+  color: #888888;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo {
+  flex: 1;
+  max-width: 450px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+.glider {
+  overflow: hidden;
+}
+
+.glider-contain {
+  height: 100vh;
+  width: 85%;
+  padding: 2%;
+}
+
+.glider-prev,
+.glider-next {
+  top: 50%;
+}
+
+h1 {
+  font-family: Montserrat;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+figure {
+  margin: 1em;
+  padding: 1em;
+}
+
+figcaption {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  color: #b5b5b5;
+}
+
+figcaption > * {
+  padding: 0.2em 0.5em;
+}
+
+[data-scroll] {
+  transition: all 4s;
+}
+
+[data-scroll=in] {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+[data-scroll=out] {
+  opacity: 0;
+  transform: translateX(-300px);
+}
+
+.dropbtn {
+  border: 0;
+  outline: 0;
+  font-size: 24px;
+  background-color: transparent;
+}
+.dropbtn i {
+  color: #a2a2a2;
+}
+
+.dropdown-content {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #000000;
+  min-width: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #b4b4b4;
+  font-size: 16px;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #954cdd;
+  color: white;
+}
+
+.show {
+  display: block;
+}
+
+.SignUp {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 16px;
+  color: #fdfdfd;
+  background: linear-gradient(to right, #41295a, #2f0743);
+}
+.SignUp_text {
+  flex: 1;
+}
+.SignUp_button {
+  flex: 1;
+}
+
+.hero-image {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/florian-olivo-Mf23RF8xArY-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-image section {
+  height: 100%;
+}
+
 .unstyle-list {
   list-style-type: none;
   text-decoration: none;
@@ -70,168 +254,6 @@
   .logo {
     max-width: 300px;
   }
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial;
-}
-
-.glider {
-  overflow: hidden;
-}
-
-.glider-contain {
-  height: 100vh;
-  width: 85%;
-  padding: 2%;
-}
-
-.glider-prev,
-.glider-next {
-  top: 50%;
-}
-
-h1 {
-  font-family: Montserrat;
-  text-align: center;
-  margin-bottom: 2em;
-}
-
-figure {
-  margin: 1em;
-  padding: 1em;
-}
-
-figcaption {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  text-align: center;
-  color: #b5b5b5;
-}
-
-figcaption > * {
-  padding: 0.2em 0.5em;
-}
-
-[data-scroll] {
-  transition: all 4s;
-}
-
-[data-scroll=in] {
-  opacity: 1;
-  transform: translateX(0px);
-}
-
-[data-scroll=out] {
-  opacity: 0;
-  transform: translateX(-300px);
-}
-
-.search_whole {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-}
-
-.search_whole input {
-  border: 0;
-  border: 2px solid black;
-  padding: 5px;
-  border-radius: 500px;
-  font-size: 20px;
-  outline: 0;
-}
-
-.search_whole input:focus {
-  caret-color: red;
-}
-
-.logo a {
-  font-family: "Biryani", sans-serif;
-  color: #954cdd;
-  font-size: 2em;
-  text-align: center;
-}
-
-header {
-  border-bottom: 2px solid #888888;
-}
-
-nav ul {
-  list-style-type: none;
-  font-size: 1.5em;
-}
-
-nav li a {
-  text-decoration: none;
-  transition: transform 2s;
-  color: #888888;
-}
-
-nav ul {
-  display: flex;
-  justify-content: space-evenly;
-  align-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-.logo {
-  flex: 1;
-  max-width: 450px;
-}
-
-.dropbtn {
-  border: 0;
-  outline: 0;
-  font-size: 24px;
-}
-
-.dropdown-content {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: #b4b4b4;
-  font-size: 16px;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #954cdd;
-  color: white;
-}
-
-.show {
-  display: block;
-}
-
-.SignUp {
-  display: flex;
-  flex-flow: row wrap;
-  padding: 16px;
-  color: #fdfdfd;
-  background: linear-gradient(to right, #41295a, #2f0743);
-}
-.SignUp_text {
-  flex: 1;
-}
-.SignUp_button {
-  flex: 1;
 }
 
 /*# sourceMappingURL=index.css.map */
