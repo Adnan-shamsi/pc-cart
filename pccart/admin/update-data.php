@@ -337,7 +337,7 @@ else{
       <label for="brand"><b>Brand</b></label>
       <input class="form-control" type="text" placeholder="Enter Brand Name" name="brand" value="<?php echo $row_upper['Brand'] ?>" required>
 
-      <label for="desc">Description:</label>
+      <label for="desc"><b> Description:</b></label>
       <textarea class="form-control" rows="10" id="desc" name='desc' required> <?php echo $row_upper['Description'] ?></textarea>
 
       <label for="price"><b>Price</b></label>
@@ -347,7 +347,7 @@ else{
       <input class="form-control" type="number" class="form-control" placeholder="Enter Quantity" name="qty" min='1' max='100000' value="<?php echo $row_upper['Quantity'] ?>" required>
 
 
-        <label for="photo1" class = "labelimg my-3">.Select 1st Image:</label>
+        <label for="photo1" class = "labelimg my-3">Select 1st Image:</label>
         <input type="file" id="photo1" name="photo1" class = "labelimg">
         <img class='my-3' src="<?php echo $prod_image_location .$row_upper['first_image'] ?>" alt="" border="3" height="150" width="250">
         <br>
