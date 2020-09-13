@@ -9,7 +9,7 @@ if (!isset($_SESSION['person_id']))
 
 
 if(!isset($_GET['pid']) && !isset($_GET['person']))
-  die('ACCESS DEDIED');
+  die('ACCESS DENIED');
 
 #to ensure that admin do not delete himself
 if(isset($_GET['person']))
