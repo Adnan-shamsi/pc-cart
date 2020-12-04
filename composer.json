@@ -1,3 +1,6 @@
 {
-  "require": {}
+  "require": {
+    "php": ">=7.4",
+    "vlucas/phpdotenv": "^5.2"
+  }
 }
