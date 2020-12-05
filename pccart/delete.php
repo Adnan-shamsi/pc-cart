@@ -5,7 +5,7 @@ include("admin/connection.php");
 
 # checking login
 if (!isset($_SESSION['customer_id']))
-  header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login.php');
+  header('Location:https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login.php');
 
 $id = $_GET['oid'];
 $result = mysqli_query($conn,"SELECT * FROM orders WHERE Order_id = {$id}") or die("unsucssfull");
@@ -16,6 +16,6 @@ if($row['status'] == 1 || $row['status'] == 2){
     $res2 = mysqli_query($conn,"UPDATE product SET Quantity = Quantity + {$row['Quantity']}  WHERE Product_id = {$row['Product_id']}") or die("unsucssfull");
 }
 
-header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/orderhistory.php' );
+header('Location:https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/orderhistory.php' );
 
 ?>

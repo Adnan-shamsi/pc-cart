@@ -5,7 +5,7 @@ include_once('connection.php');
 
 #################### login check
 if (!isset($_SESSION['person_id']))
-  header('Location:http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
+  header('Location:https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
 
 
 if(!isset($_GET['pid']) && !isset($_GET['person']))
@@ -15,7 +15,7 @@ if(!isset($_GET['pid']) && !isset($_GET['person']))
 if(isset($_GET['person']))
 {
  if($_GET['person'] == $_SESSION['person_id'])
- header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/admin-table.php');
+ header('Location: https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/admin-table.php');
 }
 
 # for deleting product
@@ -30,7 +30,7 @@ if($_SESSION['role'] == 0 && isset($_GET['pid']))
   #deleting product row
   $sql = "DELETE FROM product WHERE Product_id = {$_GET['pid']} AND dealer_id = {$_SESSION['person_id']} ";
   $result = mysqli_query($conn,$sql) or die("unsucessful");
-  header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/product-table.php');
+  header('Location: https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/product-table.php');
 }
 
 #for deleting category
@@ -60,7 +60,7 @@ else if($_SESSION['role'] == 1 && isset($_GET['pid']))
   # then deleting those product that belong to that category
   mysqli_query($conn,"DELETE FROM product WHERE category_id ={$_GET['pid']} ") or die("unsucessful");
 
-  header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/category.php');
+  header('Location: https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/category.php');
 
 }
 
@@ -90,7 +90,7 @@ else if($_SESSION['role'] == 1 && isset($_GET['person']))
   }
 
   #moving person to their respective table page
-  $url = "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'
+  $url = "https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'
     . ($row['Role'] == 1 ? 'admin-table.php' : 'dealer-table.php');
 
   header("Location:" . $url);

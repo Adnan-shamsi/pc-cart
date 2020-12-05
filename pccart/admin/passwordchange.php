@@ -15,9 +15,9 @@ include_once ('connection.php');
       $message = "Current Password is not correct";
 
       if($_SESSION['role'] != 1)
-      header("Location: http://localhost/pc-cart/pccart/admin/admin-panel.php");
+      header('Location:https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/admin-panel.php');
       else if($_SESSION['role'] != 0)
-      header("Location: http://localhost/pc-cart/pccart/admin/dealer-home.php");
+      header('Location:https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/dealer-home.php');
   }
 ?>
 <!DOCTYPE html>

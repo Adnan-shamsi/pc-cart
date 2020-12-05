@@ -4,7 +4,7 @@ session_start();
 include_once ('admin/connection.php');
 # if login send to home page
 if (isset($_SESSION['customer_id']))
-  header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/home-page.php');
+  header('Location: https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/home-page.php');
 
 ?>
 
@@ -65,7 +65,7 @@ if(isset($_POST['submit']) )
 
 
                    mysqli_query($conn,$sql1) or die('Unsuccessfull');
-                   header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login.php');
+                   header('Location: https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login.php');
                 }
             }
          }

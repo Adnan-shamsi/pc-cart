@@ -6,7 +6,7 @@ include("admin/connection.php");
 if (isset($_SESSION['customer_id'])) {
   $query = 'SELECT or.product_id from order as or';
 } else {
-  header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login.php');
+  header('Location: https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login.php');
 }
 
 ?>

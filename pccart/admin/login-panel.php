@@ -35,7 +35,7 @@ if (!isset($_SESSION['person_id']) && isset($_POST['submit']))
 if(isset($_SESSION['role']))
 {
   #moving person to their respective home page
-  $home_url = "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'
+  $home_url = "https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'
     . ($row['Role'] == 1 ? 'admin-panel.php' : 'dealer-home.php');
 
   header("Location:" . $home_url);

@@ -4,7 +4,7 @@
   include_once ('connection.php');
   #checking for login
   if (!isset($_SESSION['person_id']))
-     header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
+     header('Location: https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
  ?>
 
  <?php
@@ -63,7 +63,7 @@
                   $result = mysqli_query($conn,$query) or die('Updation failed');
 
                   #moving person to their respective home page
-                  $home_url = "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'
+                  $home_url = "https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'
                     . ($row['Role'] == 1 ? 'admin-panel.php' : 'dealer-home.php');
 
                   header("Location:" . $home_url);

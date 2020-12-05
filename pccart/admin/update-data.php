@@ -5,7 +5,7 @@
   include_once ('connection.php');
   #checking for login
   if (!isset($_SESSION['person_id']))
-     header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
+     header('Location: https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login-panel.php');
 
   #checking if pid and peson id is same or not
   if(!isset($_GET['id']))
@@ -107,7 +107,7 @@
            mysqli_query($conn,$insert_title) or die('Unable to save title');
 
            #moving to home page after completion
-           header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/admin-panel.php');
+           header('Location: https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/admin-panel.php');
        }
 
    }
@@ -222,7 +222,7 @@
       }
 
       #moving to home page after completion
-      header('Location: http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/dealer-home.php');
+      header('Location: https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/dealer-home.php');
 
     }
     else
