@@ -1,9 +1,11 @@
 @import './glider.css';
+
 .search_whole {
   display: flex;
   align-items: center;
   padding: 20px;
 }
+
 .search_whole input {
   border: 0;
   padding: 5px;
@@ -13,14 +15,16 @@
   color: white;
   background-color: #000000;
 }
+
 .search_whole input:focus {
   caret-color: red;
 }
+
 .search_whole i {
   color: #bfbfbf;
 }
 
-.search_whole > * {
+.search_whole>* {
   padding: 0 5%;
 }
 
@@ -39,6 +43,7 @@ nav ul {
   list-style-type: none;
   font-size: 1.5em;
 }
+
 nav ul a {
   text-decoration: none;
   transition: transform 2s;
@@ -58,6 +63,10 @@ nav ul {
   max-width: 450px;
 }
 
+.hamburger {
+  transform: rotate(-90deg) ;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -70,7 +79,7 @@ nav ul {
 }
 
 .glider-contain {
-  height: 100vh;
+  /* height: 100vh; */
   width: 85%;
   padding: 2%;
 }
@@ -98,7 +107,7 @@ figcaption {
   color: #b5b5b5;
 }
 
-figcaption > * {
+figcaption>* {
   padding: 0.2em 0.5em;
 }
 
@@ -122,6 +131,7 @@ figcaption > * {
   font-size: 24px;
   background-color: transparent;
 }
+
 .dropbtn i {
   color: #a2a2a2;
 }
@@ -164,9 +174,11 @@ figcaption > * {
   color: #fdfdfd;
   background: linear-gradient(to right, #41295a, #2f0743);
 }
+
 .SignUp_text {
   flex: 1;
 }
+
 .SignUp_button {
   flex: 1;
 }
@@ -187,31 +199,67 @@ figcaption > * {
   list-style-type: none;
   text-decoration: none;
 }
+
 .unstyle-list li {
   padding: 5px;
 }
+
+.port-desc button {
+  padding: 8px;
+  font-size: 16px;
+  background-color: rebeccapurple;
+  color: white;
+  border-radius: 8px;
+}
+
+.port-desc button:hover {
+  color: rebeccapurple;
+  background-color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .footer {
   background: linear-gradient(to right, #3c3b3f, #605c3c);
   clip-path: polygon(0% 0%, 100% 15%, 100% 100%, 0% 100%);
   color: #d6d6d6;
 }
-.footer_description, .footer_links {
+
+.footer_description,
+.footer_links {
   display: flex;
   padding: 20px;
   flex: 1;
   justify-content: space-around;
 }
+
 .footer .social {
   display: flex;
   justify-content: space-evenly;
 }
+
 .footer .social a {
   color: white;
 }
+
 .footer .love_heading {
   text-align: center;
   padding: 20px 40px;
+}
+
+.footer .love_heading a {
+  text-decoration: none;
+  color: rgb(177, 167, 167);
 }
 
 .footer1 {
@@ -226,19 +274,22 @@ figcaption > * {
   .footer {
     clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 100%);
   }
+
   .footer .footer_links {
     flex-direction: column;
   }
+
   .footer .footer_links .unstyle-list {
     padding: 10px;
   }
 }
+
 @media (max-width: 900px) {
   nav ul {
     flex-direction: column;
   }
 
-  nav ul > li {
+  nav ul>li {
     padding: 10px;
   }
 
@@ -246,6 +297,7 @@ figcaption > * {
     flex-direction: column;
   }
 }
+
 @media (min-width: 901px) and (max-width: 1200px) {
   .dropdown-content {
     right: 0;
