@@ -345,3 +345,9 @@ figcaption>* {
     max-width: 300px;
   }
 }
+
+@media (max-width:1600px) {
+  .dropdown-content {
+    right: 0;
+  }
+}
