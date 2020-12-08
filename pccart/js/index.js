@@ -64,7 +64,8 @@ $(document).ready(function () {
   $(".dropdown").on("click", function () {
     $(this).siblings(".dropdown-content").toggleClass("show");
   });
-  $(".menu_icon button").click(function () {
+  $(".menu_icon_container").click(function () {
+    $(this).toggleClass("change");
     $("nav .ul-pc").toggleClass("activex");
   });
 });
