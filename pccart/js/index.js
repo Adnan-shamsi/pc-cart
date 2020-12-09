@@ -69,3 +69,6 @@ $(document).ready(function () {
     $("nav .ul-pc").toggleClass("activex");
   });
 });
+gsap.from("section h1,h2", { duration: 3, y: 20, opacity: 0 });
+gsap.to("section h1,h2", { duration: 3, x: 0, opacity: 1 });
+

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import '../css/glider.css';
 * {
   margin: 0;
@@ -216,6 +217,9 @@ header {
   text-align: center;
   padding: 20px 40px;
 }
+.footer .love_heading i {
+  color: red;
+}
 .footer .love_heading a {
   text-decoration: none;
   color: #b1a7a7;
@@ -227,6 +231,10 @@ header {
 }
 .unstyle-list li {
   padding: 5px;
+}
+.unstyle-list li a {
+  color: white;
+  text-decoration: none;
 }
 
 .footer1 {
@@ -279,13 +287,38 @@ header {
 
 h1 {
   font-family: Montserrat;
-  text-align: center;
   margin-bottom: 2em;
+}
+
+section {
+  max-width: 60%;
+}
+section h1 {
+  font-size: 3em;
+  color: white;
+}
+section h1,
+section h2 {
+  margin: 4rem;
+}
+section h2 {
+  max-width: 40%;
+  color: #a5a2a2;
 }
 
 figure {
   margin: 1em;
   padding: 1em;
+}
+figure div {
+  overflow: hidden;
+}
+figure img {
+  width: 100%;
+  transition: 0.5s all ease-in-out;
+}
+figure:hover img {
+  transform: scale(1.2);
 }
 
 figcaption {
@@ -313,12 +346,76 @@ figcaption > * {
   transform: translateX(-300px);
 }
 
+.parallax {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/tianyi-ma-WiONHd_zYI4-unsplash.jpg");
+  min-height: 50vh;
+  background-attachment: fixed;
+  background-size: cover;
+  border-top: 22px solid white;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+.parallax h1 {
+  padding-top: 1em;
+  color: #eeeeee;
+}
+.parallax .button_cat {
+  position: relative;
+  border: 2px solid white;
+  font-family: "Montserrat", sans-serif;
+  padding: 8px 25px 8px 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.5s;
+}
+.parallax .button_cat .button_text_container {
+  position: relative;
+  transition: 0.5s;
+}
+.parallax .button_cat .button_text_container:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.parallax .button_cat:hover {
+  background: white;
+}
+.parallax .button_cat:hover a {
+  color: black;
+}
+.parallax .button_cat:hover .button_text_container {
+  padding-right: 25px;
+}
+.parallax .button_cat:hover .button_text_container:after {
+  opacity: 1;
+  right: 0;
+}
+.parallax .button_cat a {
+  text-decoration: none;
+  font-size: 1.4em;
+  color: white;
+}
+
+@keyframes explode {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 20px;
+    height: 20px;
+  }
+}
 .hero-image {
-  height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/florian-olivo-Mf23RF8xArY-unsplash.jpg");
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/florian-olivo-Mf23RF8xArY-unsplash.jpg");
   background-position: center;
   background-size: cover;
   position: relative;
+  padding: 10px;
 }
 
 .hero-image section {

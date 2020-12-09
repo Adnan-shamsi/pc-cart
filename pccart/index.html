@@ -23,6 +23,11 @@
       href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style></style>
   </head>
@@ -74,11 +79,7 @@
               <a href="">PcCart</a>
             </li>
             <li class="search_whole">
-              <form
-                class=""
-                action="search.php"
-                method="get"
-              >
+              <form class="" action="search.php" method="get">
                 <input
                   type="text"
                   name="search"
@@ -108,79 +109,95 @@
         </nav>
       </header>
       <section>
-        <h1
-          style="
-            font-family: Montserrat;
-            text-align: center;
-            margin-bottom: 2em;
-          "
-        >
-          We deliver top of the line products
-        </h1>
+        <h1>WE are an ecommerce Pc pcparts  company</h1>
+        <h2>
+          Making people lives better by coming up with some real good products
+        </h2>
       </section>
     </div>
+    <div class="parallax">
+      <h1>Explore here</h1>
+      <div class="button_cat">
+        <a href="./category.php">
+          <span class="button_text_container"> Categories</span>
+        </a>
+      </div>
+    </div>
+
     <div class="glider-contain">
       <h1 data-scroll>What's Trending</h1>
       <div class="glider">
-        <figure class="port-item">
-          <img
-            src="./img/andrew-mantarro-dQ2AGk0lThs-unsplash.jpg"
-            alt="portfolio item"
-          />
+        <figure onclick="" class="port-item">
+          <div>
+            <img
+              src="./img/andrew-mantarro-dQ2AGk0lThs-unsplash.jpg"
+              alt="portfolio item"
+            />
+          </div>
           <figcaption class="port-desc">
             <p>"Beautiful"</p>
             <button>Buy now</button>
           </figcaption>
         </figure>
-        <figure class="port-item">
-          <img
-            src="./img/bruce-mars-xj8qrWvuOEs-unsplash.jpg"
-            alt="portfolio item"
-          />
+        <figure onclick="" class="port-item">
+          <div>
+            <img
+              src="./img/bruce-mars-xj8qrWvuOEs-unsplash.jpg"
+              alt="portfolio item"
+            />
+          </div>
           <figcaption class="port-desc">
             <p>"Beautiful"</p>
             <button>Buy now</button>
           </figcaption>
         </figure>
-        <figure class="port-item">
-          <img
-            src="./img/christian-wiediger-u03OCRlSd2M-unsplash.jpg"
-            alt="portfolio item"
-          />
+        <figure onclick="" class="port-item">
+          <div>
+            <img
+              src="./img/christian-wiediger-u03OCRlSd2M-unsplash.jpg"
+              alt="portfolio item"
+            />
+          </div>
           <figcaption class="port-desc">
             <p>"Beautiful"</p>
             <button>Buy now</button>
           </figcaption>
         </figure>
-        <figure class="port-item">
-          <img
-            id="sky"
-            src="./img/florian-olivo-Mf23RF8xArY-unsplash.jpg"
-            alt="portfolio item"
-          />
+        <figure onclick="" class="port-item">
+          <div>
+            <img
+              id="sky"
+              src="./img/florian-olivo-Mf23RF8xArY-unsplash.jpg"
+              alt="portfolio item"
+            />
+          </div>
           <figcaption class="port-desc">
             <p>"Beautiful"</p>
             <button>Buy now</button>
           </figcaption>
         </figure>
 
-        <figure class="port-item">
-          <img
-            id="sky"
-            src="./img/kari-shea-1SAnrIxw5OY-unsplash.jpg"
-            alt="portfolio item"
-          />
+        <figure onclick="" class="port-item">
+          <div>
+            <img
+              id="sky"
+              src="./img/kari-shea-1SAnrIxw5OY-unsplash.jpg"
+              alt="portfolio item"
+            />
+          </div>
           <figcaption class="port-desc">
             <p>"Beautiful"</p>
             <button>Buy now</button>
           </figcaption>
         </figure>
-        <figure class="port-item">
-          <img
-            id="sky"
-            src="./img/lawrence-sXQ-yimxgCg-unsplash.jpg"
-            alt="portfolio item"
-          />
+        <figure onclick="" class="port-item">
+          <div>
+            <img
+              id="sky"
+              src="./img/lawrence-sXQ-yimxgCg-unsplash.jpg"
+              alt="portfolio item"
+            />
+          </div>
           <figcaption class="port-desc">
             <p>"Beautiful"</p>
             <!-- <a href="" class="button button-small button-accent">Buy Now</a> -->
@@ -231,14 +248,18 @@
             <div class="footer123">
               <ul class="unstyle-list">
                 <li><strong>Administration</strong></li>
-                <li>Admin/Dealer login</li>
+                <li>
+                  <a href="./admin/login-panel.php">Admin/Dealer login</a>
+                </li>
               </ul>
             </div>
           </div>
           <div class="break"></div>
           <div class="social">
             <a href=""><i class="fab fa-facebook"></i></a>
-            <a href=""><i class="fab fa-github-alt"></i></a>
+            <a href="https://github.com/Adnan-shamsi/pc-cart"
+              ><i class="fab fa-github-alt"></i
+            ></a>
             <a href=""><i class="fab fa-twitter"></i></a>
             <a href=""><i class="fab fa-instagram"></i></a>
           </div>
@@ -251,7 +272,7 @@
         </div>
       </div>
     </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="./js/glider.js"></script>
 
     <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
