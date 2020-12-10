@@ -94,10 +94,14 @@ header {
   color: white;
 }
 
-.menu_icon button {
+.menu_icon button,
+.search_whole button {
   outline: 0;
   border: 0;
   background: transparent;
+}
+
+.menu_icon button {
   color: white;
   font-size: 24px;
 }
